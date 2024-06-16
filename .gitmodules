@@ -1,0 +1,15 @@
+[submodule "home/.config/zsh/zsh-vi-mode"]
+	path = home/.config/zsh/zsh-vi-mode
+	url = https://github.com/jeffreytse/zsh-vi-mode
+[submodule "home/.config/zsh/zsh-autosuggestions"]
+	path = home/.config/zsh/zsh-autosuggestions
+	url = https://github.com/zsh-users/zsh-autosuggestions
+[submodule "home/.config/zsh/zsh-syntax-highlighting"]
+	path = home/.config/zsh/zsh-syntax-highlighting
+	url = https://github.com/zsh-users/zsh-syntax-highlighting
+[submodule "home/.config/zsh/zsh-history-substring-search"]
+	path = home/.config/zsh/zsh-history-substring-search
+	url = https://github.com/zsh-users/zsh-history-substring-search
+[submodule "home/.config/zsh/prompts/geometry"]
+	path = home/.config/zsh/prompts/geometry
+	url = https://github.com/geometry-zsh/geometry
