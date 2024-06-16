@@ -1,8 +1,8 @@
 # TDK Dotfiles
 
-⚠️ This repo is under construction!
+⚠️ This repository is under construction!
 
-To clone the repo run:
+To clone the repository run:
 
 ```
 git clone https://github.com/tediak/dotfiles
