@@ -10,6 +10,3 @@
 [submodule "home/.config/zsh/zsh-history-substring-search"]
 	path = home/.config/zsh/zsh-history-substring-search
 	url = https://github.com/zsh-users/zsh-history-substring-search
-[submodule "home/.config/zsh/prompts/geometry"]
-	path = home/.config/zsh/prompts/geometry
-	url = https://github.com/tediak/geometry-zsh
