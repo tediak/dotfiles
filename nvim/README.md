@@ -2,11 +2,11 @@
 
 This config was intended only for personal use only, but currently I'm trying to make it more transparent and easy to modify or extend. Currently there are three most common places you're wanna look in case to change some settings:
 
-- [./lua/tdk/core/options.lua] - Neovim options
-- [./lua/tdk/core/remap.lua] - Global key mappings
-- [./lua/tdk/colorschemes] - Colorschemes
-- [./lua/tdk/core/lsp.lua] and [./lsp] - LSP settings
-- [./lua/tdk/plugins] - Plugin specific settings and key mappings
+- [./lua/tdk/core/options.lua](./lua/tdk/core/options.lua) - Neovim options
+- [./lua/tdk/core/remap.lua](./lua/tdk/core/remap.lua) - Global key mappings
+- [./lua/tdk/colorschemes](./lua/tdk/colorschemes) - Colorschemes
+- [./lua/tdk/core/lsp.lua](./lua/tdk/core/lsp.lua) and [./lsp](./lsp) - LSP settings
+- [./lua/tdk/plugins](./lua/tdk/plugins) - Plugin specific settings and key mappings
 
 ## Plugins and features
 
