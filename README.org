@@ -1,27 +1,22 @@
 * TDK Dotfiles
-
 My config files for the stuff I love and use the most.
 
 ** Installation
-
-** [[./ghostty][ghostty]]
-
+*** [[./ghostty][ghostty]]
 To use the config, run (replace Ghostty config directory if you are not a MacOS user):
 
 #+begin_src sh
 ln -s $DOTFILES/ghostty/config /Library/Application\ Support/com.mitchellh.ghostty/config
 #+end_src
 
-** [[./git][git]]
-
+*** [[./git][git]]
 To use this config, run:
 
 #+begin_src sh
 ln -s $DOTFILES/git $HOME/.config/git
 #+end_src
 
-** [[./nvim][nvim]]
-
+*** [[./nvim][nvim]]
 #+begin_details
 #+summary: Screenshots
 
@@ -52,16 +47,14 @@ alias nvim-alt="NVIM_APPNAME=nvim-alternative nvim "
 
 and after sourcing the file, you can run =nvim-alt= instead of default =nvim=.
 
-** [[./tmux][tmux]]
-
+*** [[./tmux][tmux]]
 To use config, run:
 
 #+begin_src sh
 ln -s $DOTFILES/tmux $HOME/.config/tmux
 #+end_src
 
-** [[./zsh][zsh]]
-
+*** [[./zsh][zsh]]
 To use prompt and aliases, add this to your .zshrc:
 
 #+begin_src sh
