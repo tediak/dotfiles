@@ -14,20 +14,19 @@ ln -s $DOTFILES/git $HOME/.config/git
 
 ## [nvim](./nvim)
 
-To use this config, run:
+Link it to your local config directory:
 
 ```sh
 ln -s $DOTFILES/nvim $HOME/.config/nvim
 ```
 
-If you have another neovim configuration, you can try this out just by linking it to another directory name, for instance:
+In case you have another neovim configuration, you can link config to a directory with another name, for instance:
 
 ```sh
 ln -s $DOTFILES/nvim $HOME/.config/nvim-alternative
-
 ```
 
-In your shell rc file, put:
+In your shell source file, put:
 
 ```sh
 alias nvim-alt="NVIM_APPNAME=nvim-alternative nvim "
