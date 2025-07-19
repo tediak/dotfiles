@@ -6,7 +6,7 @@ My config files for the stuff I love and use the most.
 To use the config, run (replace Ghostty config directory if you are not a MacOS user):
 
 #+begin_src sh
-ln -s $DOTFILES/ghostty/config /Library/Application\ Support/com.mitchellh.ghostty/config
+ln -s $DOTFILES/ghostty/config "$HOME/Library/Application Support/com.mitchellh.ghostty/config"
 #+end_src
 
 *** [[./git][git]]
