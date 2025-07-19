@@ -4,6 +4,14 @@ My config files for the stuff I love and use the most.
 
 ## Installation
 
+## [ghostty](./ghostty)
+
+To use the config, run (replace Ghostty config directory if you are not a MacOS user):
+
+```sh
+ln -s $DOTFILES/ghostty/config /Library/Application\ Support/com.mitchellh.ghostty/config
+```
+
 ## [git](./git)
 
 To use this config, run:
@@ -47,11 +55,3 @@ source $ZSH/tdk-prompt.zsh
 ```
 
 (check aliases before enabling them)
-
-## [ghostty](./ghostty)
-
-To use the config, run (replace Ghostty config directory if you are not a MacOS user):
-
-```sh
-ln -s $DOTFILES/ghostty/config /Library/Application\ Support/com.mitchellh.ghostty/config
-```
