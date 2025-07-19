@@ -3,6 +3,6 @@ return {
   filetypes = { 'json', 'jsonc' },
   root_markers = { '.git', 'package.json', 'tsconfig.json', 'jsconfig.json' },
   init_options = {
-    provideFormatter = false
+    provideFormatter = false,
   },
 }
