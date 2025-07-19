@@ -1,5 +1,7 @@
 # TDK Dotfiles
 
+![](./assets/nvim-welcome.png)
+
 My config files for the stuff I love and use the most.
 
 ## Installation
