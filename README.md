@@ -1,7 +1,5 @@
 # TDK Dotfiles
 
-![](./assets/nvim-welcome.png)
-
 My config files for the stuff I love and use the most.
 
 ## Installation
@@ -23,6 +21,17 @@ ln -s $DOTFILES/git $HOME/.config/git
 ```
 
 ## [nvim](./nvim)
+
+
+<details>
+  <summary>Screenshots</summary>
+
+  ![](./assets/nvim-welcome.png)
+  ![](./assets/nvim-code.png)
+  ![](./assets/nvim-org-codecompanio.png)
+  ![](./assets/nvim-overseer-logs.png)
+  ![](./assets/nvim-kulala.png)
+</details>
 
 Link it to your local config directory:
 
