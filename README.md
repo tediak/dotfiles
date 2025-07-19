@@ -16,13 +16,13 @@ ln -s $DOTFILES/git $HOME/.config/git
 
 Link it to your local config directory:
 
-```sh
+```shell
 ln -s $DOTFILES/nvim $HOME/.config/nvim
 ```
 
 In case you have another neovim configuration, you can link config to a directory with another name, for instance:
 
-```sh
+```shell
 ln -s $DOTFILES/nvim $HOME/.config/nvim-alternative
 ```
 
@@ -47,3 +47,11 @@ source $ZSH/tdk-prompt.zsh
 ```
 
 (check aliases before enabling them)
+
+## [ghostty](./ghostty)
+
+To use the config, run (replace Ghostty config directory if you are not a MacOS user):
+
+```sh
+ln -s $DOTFILES/ghostty/config /Library/Application\ Support/com.mitchellh.ghostty/config
+```
