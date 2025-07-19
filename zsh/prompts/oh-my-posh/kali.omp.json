@@ -1,0 +1,90 @@
+{
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "blocks": [
+    {
+      "alignment": "left",
+      "segments": [
+        {
+          "foreground": "lightWhite",
+          "properties": {
+            "style": "agnoster_short",
+            "max_depth": 3
+          },
+          "style": "plain",
+          "template": "<green>[</><blue>{{ .Path }}</><green>]</>",
+          "type": "path"
+        },
+        {
+          "foreground": "white",
+          "properties": {
+            "branch_max_length": 75,
+            "fetch_stash_count": true,
+            "fetch_status": true,
+            "branch_icon": "",
+            "branch_identical_icon": ""
+          },
+          "style": "plain",
+          "template": "<green>-[</><cyan>{{ .HEAD }}{{ if or (.Working.Changed) }}<red> {{ .Working.String }}</>{{ else }}{{end}}{{ if (.Staging.Changed) }} <lightGreen>{{ .Staging.String }}</>{{ else }}{{ end }}</></>{{ if .Ahead }}<yellow> \uf062{{ .Ahead }}</>{{ else }}{{end}}{{ if .Behind }}<yellow> \uf063{{ .Behind }}</>{{ else }}{{end}}<green>]</>",
+          "type": "git"
+        }
+      ],
+      "type": "prompt"
+    },
+    {
+      "alignment": "right",
+      "segments": [
+        {
+          "foreground": "cyan",
+          "display_mode": "files",
+          "properties": {
+          },
+          "style": "plain",
+          "template": "<green>[</>\ued0d {{ .Full }}<green>]</></><green>-</>",
+          "type": "node"
+        },
+        {
+          "foreground": "cyan",
+          "properties": {
+            "parse_mod_file": true
+          },
+          "template": "<green>[</>\ue627 {{ .Full }}<green>]</><green>-</>",
+          "type": "go"
+        },
+        {
+          "type": "aws",
+          "style": "plain",
+          "foreground": "yellow",
+          "template": "<green>[</>\udb80\udda7 {{.Profile}}{{if .Region}}({{.Region}}){{end}}<green>]</></><green>-</>"
+        },
+        {
+          "foreground": "white",
+          "foreground_templates": [
+            "{{ if gt .Code 0 }}red{{ end }}"
+          ],
+          "properties": {
+            "always_enabled": true,
+            "style": "round"
+          },
+          "style": "plain",
+          "template": "<green>[</>{{ .FormattedMs }}<green>]</>",
+          "type": "executiontime"
+        }
+      ]
+    },
+    {
+      "alignment": "left",
+      "newline": true,
+      "segments": [
+        {
+          "foreground": "magenta",
+          "style": "plain",
+          "template": " λ ",
+          "type": "text"
+        }
+      ],
+      "type": "prompt"
+    }
+
+  ],
+  "version": 3
+}
