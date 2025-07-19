@@ -1,14 +1,14 @@
 return {
-  cmd = { "lua-language-server" },
-  filetypes = { "lua" },
-  root_markers = { ".luarc.json", ".luarc.jsonc" },
+  cmd = { 'lua-language-server' },
+  filetypes = { 'lua' },
+  root_markers = { '.luarc.json', '.luarc.jsonc' },
   settings = {
     Lua = {
       runtime = {
-        version = "LuaJIT",
+        version = 'LuaJIT',
       },
       diagnostics = {
-        globals = { "vim" },
+        globals = { 'vim' },
       },
       signatureHelp = { enabled = true },
     },

@@ -1,1 +1,1 @@
-require("tdk")
+require('tdk')

@@ -1,37 +1,42 @@
 return {
-  "olimorris/codecompanion.nvim",
+  'olimorris/codecompanion.nvim',
   dependencies = {
-    "nvim-lua/plenary.nvim",
-    "nvim-treesitter/nvim-treesitter",
+    'nvim-lua/plenary.nvim',
+    'nvim-treesitter/nvim-treesitter',
     {
-      "MeanderingProgrammer/render-markdown.nvim",
-      ft = { "markdown", "codecompanion" },
+      'MeanderingProgrammer/render-markdown.nvim',
+      ft = { 'markdown', 'codecompanion' },
       opts = {
         code = {
-          style = "normal",
+          style = 'normal',
         },
         heading = {
           icons = { ' ○ ', '○ ', '○ ', '○ ', '○ ', '○ ' },
-        }
+        },
       },
     },
   },
   lazy = false,
   keys = {
-    { "<leader>ss", "<cmd>CodeCompanionChat toggle<cr>", desc = "Toggle CodeCompanion Chat" },
-    { "<leader>sa", "<cmd>CodeCompanionActions<cr>",     mode = { "n", "v" },               desc = "Run CodeCompanion actions" }
+    { '<leader>ss', '<cmd>CodeCompanionChat toggle<cr>', desc = 'Toggle CodeCompanion Chat' },
+    {
+      '<leader>sa',
+      '<cmd>CodeCompanionActions<cr>',
+      mode = { 'n', 'v' },
+      desc = 'Run CodeCompanion actions',
+    },
   },
   opts = {
     display = {
       chat = {
         window = {
-          layout = "vertical",
-          position = "right",
+          layout = 'vertical',
+          position = 'right',
           width = 0.3,
           opts = {
             cursorline = false,
             cursorcolumn = false,
-            signcolumn = "no",
+            signcolumn = 'no',
             wrap = true,
           },
         },

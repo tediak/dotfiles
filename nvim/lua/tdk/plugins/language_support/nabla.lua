@@ -1,12 +1,12 @@
 return {
-  "jbyuki/nabla.nvim",
+  'jbyuki/nabla.nvim',
   lazy = true,
   keys = function()
     return {
       {
-        "<leader>np",
+        '<leader>np',
         ':lua require("nabla").popup()<cr>',
-        desc = "NablaPopUp",
+        desc = 'NablaPopUp',
       },
     }
   end,

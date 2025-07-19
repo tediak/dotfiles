@@ -46,9 +46,7 @@ return {
     local fname = vim.api.nvim_buf_get_name(bufnr)
     root_file_patterns = insert_package_json(root_file_patterns, 'eslintConfig', fname)
     local root_dir = vim.fs.dirname(vim.fs.find(root_file_patterns, { path = fname, upward = true })[1])
-    if root_dir then
-      on_dir(root_dir)
-    end
+    if root_dir then on_dir(root_dir) end
   end,
   -- Refer to https://github.com/Microsoft/vscode-eslint#settings-options for documentation.
   settings = {
@@ -127,15 +125,11 @@ return {
   end,
   handlers = {
     ['eslint/openDoc'] = function(_, result)
-      if result then
-        vim.ui.open(result.url)
-      end
+      if result then vim.ui.open(result.url) end
       return {}
     end,
     ['eslint/confirmESLintExecution'] = function(_, result)
-      if not result then
-        return
-      end
+      if not result then return end
       return 4 -- approved
     end,
     ['eslint/probeFailed'] = function()

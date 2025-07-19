@@ -1,8 +1,8 @@
 return {
-  "windwp/nvim-ts-autotag",
-  event = "InsertEnter",
+  'windwp/nvim-ts-autotag',
+  event = 'InsertEnter',
   dependencies = {
-    "nvim-treesitter/nvim-treesitter",
+    'nvim-treesitter/nvim-treesitter',
   },
   opts = {
     per_filetype = {

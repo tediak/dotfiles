@@ -1,25 +1,25 @@
 return {
-  "saghen/blink.cmp",
-  version = "*",
+  'saghen/blink.cmp',
+  version = '*',
   dependencies = {
     'kristijanhusak/vim-dadbod-completion',
-    'giuxtaposition/blink-cmp-copilot'
+    'giuxtaposition/blink-cmp-copilot',
   },
   opts = {
     enabled = function()
       local disabled_filetypes = {
-        "DressingInput",
-        "org-roam-select"
+        'DressingInput',
+        'org-roam-select',
       }
 
       local disabled_extensions = {
-        "markdown",
+        'markdown',
       }
 
       local disabled_by_filetype = vim.tbl_contains(disabled_filetypes, vim.bo.filetype)
       if disabled_by_filetype then return false end
 
-      local disabled_by_extension = vim.tbl_contains(disabled_extensions, vim.fn.expand("%:e"))
+      local disabled_by_extension = vim.tbl_contains(disabled_extensions, vim.fn.expand('%:e'))
       if disabled_by_extension then return false end
 
       return true
@@ -41,7 +41,7 @@ return {
           end
         end,
         'snippet_forward',
-        'fallback'
+        'fallback',
       },
       ['<Tab>'] = {
         function(cmp)
@@ -52,17 +52,17 @@ return {
           end
         end,
         'snippet_forward',
-        'fallback'
-      }
+        'fallback',
+      },
     },
     completion = {
       accept = {
         auto_brackets = {
-          enabled = true
+          enabled = true,
         },
       },
       list = {
-        selection = { preselect = true, auto_insert = false }
+        selection = { preselect = true, auto_insert = false },
       },
       documentation = {
         auto_show = true,
@@ -72,35 +72,31 @@ return {
         auto_show = true,
         draw = {
           columns = {
-            { "label",     "label_description", gap = 1, },
-            { "kind_icon", "source_name",       gap = 1 },
-          }
-        }
-      }
+            { 'label', 'label_description', gap = 1 },
+            { 'kind_icon', 'source_name', gap = 1 },
+          },
+        },
+      },
     },
     cmdline = {
       enabled = true,
     },
     sources = {
       default = {
-        "dadbod",
-        "snippets",
-        "lsp",
-        "path",
-        "buffer",
-        "copilot",
+        'dadbod',
+        'snippets',
+        'lsp',
+        'path',
+        'buffer',
+        'copilot',
       },
       per_filetype = {
-        org = {
-          'orgmode',
-          'path',
-          'copilot',
-        }
+        org = { 'orgmode', 'path', 'copilot' },
       },
       providers = {
         dadbod = {
-          name = "dadbod",
-          module = "vim_dadbod_completion.blink",
+          name = 'dadbod',
+          module = 'vim_dadbod_completion.blink',
           score_offset = 50,
         },
         orgmode = {
@@ -108,19 +104,15 @@ return {
           module = 'orgmode.org.autocompletion.blink',
           fallbacks = { 'buffer' },
         },
-        lsp = {
-          score_offset = 10,
-        },
-        snippets = {
-          score_offset = 50,
-        },
+        lsp = { score_offset = 10 },
+        snippets = { score_offset = 50 },
         copilot = {
-          name = "copilot",
-          module = "blink-cmp-copilot",
+          name = 'copilot',
+          module = 'blink-cmp-copilot',
           score_offset = 100,
           async = true,
         },
-      }
+      },
     },
-  }
+  },
 }

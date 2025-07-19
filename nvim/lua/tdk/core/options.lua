@@ -2,13 +2,13 @@
 vim.o.exrc = true
 
 -- Background always in dark mode
-vim.o.background = "dark"
+vim.o.background = 'dark'
 
 local opt = vim.opt
 
 -- Folding settings
-opt.foldmethod = "expr"
-opt.foldexpr = "nvim_treesitter#foldexpr()"
+opt.foldmethod = 'expr'
+opt.foldexpr = 'nvim_treesitter#foldexpr()'
 opt.foldlevelstart = 99
 
 -- Line Numbers (relative)
@@ -16,9 +16,9 @@ opt.number = true
 opt.relativenumber = true
 
 -- Tabs
-opt.tabstop = 2       -- 2 spaces for tabs (prettier default)
-opt.shiftwidth = 2    -- 2 spaces for indent width
-opt.expandtab = true  -- expand tab to spaces
+opt.tabstop = 2 -- 2 spaces for tabs (prettier default)
+opt.shiftwidth = 2 -- 2 spaces for indent width
+opt.expandtab = true -- expand tab to spaces
 opt.autoindent = true -- copy indent from the current line when starting a new line
 
 -- Neovim tabs (show only file name in tabline)
@@ -37,14 +37,14 @@ function _G.TabLine()
   s = s .. '%#TabLineFill#'
   return s
 end
-vim.o.tabline = "%!v:lua.TabLine()"
+vim.o.tabline = '%!v:lua.TabLine()'
 
 -- Wrapping
 opt.wrap = true -- line wrap
 
 -- Searching
 opt.ignorecase = true -- if searching with lowercase keyword, it will be case-insensitive
-opt.smartcase = true  -- if keyword has at least one uppercase char, search become case-sensitive
+opt.smartcase = true -- if keyword has at least one uppercase char, search become case-sensitive
 
 -- Highlight cursor line
 opt.cursorline = false -- highlighted line on cursor position
@@ -54,14 +54,14 @@ opt.splitright = true
 opt.splitbelow = true
 
 -- Sign column
-opt.signcolumn = "yes"
+opt.signcolumn = 'yes'
 
 -- Characters highlighting leaning whitespace characters
 opt.list = true
 opt.listchars:append({
-  trail = "·",
-  lead = " ",
-  tab = "  ",
+  trail = '·',
+  lead = ' ',
+  tab = '  ',
 })
 
 -- Conceal Level
@@ -72,7 +72,7 @@ opt.backup = false
 opt.writebackup = false
 opt.swapfile = false
 opt.undofile = true
-opt.undodir = vim.fn.expand("~/.vim/undodir")
+opt.undodir = vim.fn.expand('~/.vim/undodir')
 opt.autoread = true
 opt.updatetime = 300
 opt.timeoutlen = 500
@@ -81,5 +81,5 @@ opt.autoread = true
 opt.autowrite = false
 
 -- Behavior
-opt.backspace = "indent,eol,start"
+opt.backspace = 'indent,eol,start'
 opt.autochdir = false

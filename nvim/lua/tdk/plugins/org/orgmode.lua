@@ -3,7 +3,7 @@ return {
   event = 'VeryLazy',
   ft = { 'org' },
   dependencies = {
-    'nvim-orgmode/org-bullets.nvim'
+    'nvim-orgmode/org-bullets.nvim',
   },
   config = function()
     require('orgmode').setup({
@@ -12,7 +12,8 @@ return {
       org_todo_keywords = {
         'TODO(t)',
         'PROGRESS(p)',
-        'HOLD(h)', '|',
+        'HOLD(h)',
+        '|',
         'DONE(d!)',
         'CANCELED(c!)',
       },
@@ -63,9 +64,9 @@ return {
               org_agenda_span = 'week',
               org_agenda_start_on_weekday = false,
               org_agenda_start_day = '-2d',
-              org_agenda_remove_tags = true
+              org_agenda_remove_tags = true,
             },
-          }
+          },
         },
       },
 
@@ -76,7 +77,7 @@ return {
           template = '** TODO %?\n%U',
           headline = 'Tasks',
           properties = {
-            empty_lines = 1
+            empty_lines = 1,
           },
         },
         n = {
@@ -84,7 +85,7 @@ return {
           template = '** %^{Title|New Entry}\n%U\n%?',
           headline = 'Inbox',
           properties = {
-            empty_lines = 1
+            empty_lines = 1,
           },
         },
       },
@@ -118,12 +119,12 @@ return {
     require('org-bullets').setup({
       concealcursor = true,
       symbols = {
-        headlines = { "●" },
+        headlines = { '●' },
         list = '•',
         checkboxes = {
-          half = { "-", "@org.checkbox.halfchecked" },
-          done = { "✓", "@org.keyword.done" },
-          todo = { " ", "@org.keyword.todo" },
+          half = { '-', '@org.checkbox.halfchecked' },
+          done = { '✓', '@org.keyword.done' },
+          todo = { ' ', '@org.keyword.todo' },
         },
       },
     })
