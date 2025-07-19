@@ -53,6 +53,14 @@ alias nvim-alt="NVIM_APPNAME=nvim-alternative nvim "
 
 and after sourcing the file, you can run `nvim-alt` instead of default `nvim`.
 
+## [tmux](./tmux)
+
+To use config, run:
+
+```sh
+ln -s $DOTFILES/tmux $HOME/.config/tmux
+```
+
 ## [zsh](./zsh)
 
 To use prompt and aliases, add this to your .zshrc:
