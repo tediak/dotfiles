@@ -1,6 +1,6 @@
 # TDK Dotfiles
 
-My config files for the apps I love the most, and the apps I use the most.
+My config files for the stuff I love and use the most.
 
 ## Installation
 
