@@ -52,4 +52,4 @@ keymap.set('n', 'K', vim.lsp.buf.hover, lspMapOpts)
 lspMapOpts.desc = 'Toggle inlay hints'
 keymap.set('n', '<leader>gh', function() vim.g.inlay_hints_visible = not vim.g.inlay_hints_visible end, lspMapOpts)
 
--- More LSP key bindings are handled by fzf-lua plugin and located in its config
+-- More LSP key bindings are handled by fzf-lua plugin and are located in respective config file
