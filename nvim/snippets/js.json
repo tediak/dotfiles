@@ -1,0 +1,16 @@
+{
+  "Export All From ...": {
+    "prefix": "expa",
+    "body": [
+      "export * from './${1}';"
+    ],
+    "description": "Export * from module"
+  },
+  "Console log": {
+    "prefix": "cl",
+    "body": [
+      "console.log($1);"
+    ],
+    "description": "Console log"
+  }
+}

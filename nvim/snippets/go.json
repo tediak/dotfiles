@@ -1,0 +1,10 @@
+{
+  "err_default": {
+    "prefix": "iferr",
+    "body": [
+      "if err != nil {",
+      "\t${1:return err}",
+      "}"
+    ]
+  }
+}
