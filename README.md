@@ -1,64 +1,72 @@
-* TDK Dotfiles
+# TDK Dotfiles
 My config files for the stuff I love and use the most.
 
-** Installation
-*** [[./ghostty][ghostty]]
+## Installation
+
+### [ghostty](./ghostty)
 To use the config, run (replace Ghostty config directory if you are not a MacOS user):
 
-#+begin_src sh
+```sh
 ln -s $DOTFILES/ghostty/config "$HOME/Library/Application Support/com.mitchellh.ghostty/config"
-#+end_src
+```
 
-*** [[./git][git]]
+### [git](./git)
 To use this config, run:
 
-#+begin_src sh
+```sh
 ln -s $DOTFILES/git $HOME/.config/git
-#+end_src
+```
 
-*** [[./nvim][nvim]]
-[[./assets/nvim-welcome.png]]
-[[./assets/nvim-code.png]]
-[[./assets/nvim-org-codecompanion.png]]
-[[./assets/nvim-overseer-logs.png]]
-[[./assets/nvim-kulala.png]]
+### [nvim](./nvim)
+
+<details>
+<summary>Screenshots</summary>
+
+![nvim welcome](./assets/nvim-welcome.png)
+![nvim code](./assets/nvim-code.png)
+![nvim org codecompanion](./assets/nvim-org-codecompanion.png)
+![nvim overseer logs](./assets/nvim-overseer-logs.png)
+![nvim kulala](./assets/nvim-kulala.png)
+
+</details>
 
 Link it to your local config directory:
 
-#+begin_src shell
+```sh
 ln -s $DOTFILES/nvim $HOME/.config/nvim
-#+end_src
+```
 
 In case you have another neovim configuration, you can link config to a directory with another name, for instance:
 
-#+begin_src shell
+```sh
 ln -s $DOTFILES/nvim $HOME/.config/nvim-alternative
-#+end_src
+```
 
 In your shell source file, put:
 
-#+begin_src sh
+```sh
 alias nvim-alt="NVIM_APPNAME=nvim-alternative nvim "
-#+end_src
+```
 
-and after sourcing the file, you can run =nvim-alt= instead of default =nvim=.
+and after sourcing the file, you can run `nvim-alt` instead of default `nvim`.
 
-*** [[./tmux][tmux]]
+### [tmux](./tmux)
 To use config, run:
 
-#+begin_src sh
+```sh
 ln -s $DOTFILES/tmux $HOME/.config/tmux
-#+end_src
+```
 
-*** [[./zsh][zsh]]
+### [zsh](./zsh)
 To use prompt and aliases, add this to your .zshrc:
 
-#+begin_src sh
+```sh
 export ZSH="$HOME/.config/zsh"
 
 source $ZSH/tdk-prompt.zsh
 # source $ZSH/common-aliases.zsh
 # source $ZSH/tdk-aliases.zsh
-#+end_src
+```
 
 (check aliases before enabling them)
+

@@ -22,7 +22,7 @@ alias text="subl"
 alias merge="smerge"
 
 # Bottom
-alias btm="btm --theme gruvbox --celsius"
+alias btm="btm --celsius"
 
 # TLauncher
 alias tlauncher="java -Xms24g -Xmx24g -jar ~/my/tlauncher/TLauncher.jar"
