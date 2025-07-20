@@ -19,7 +19,7 @@ ln -s $DOTFILES/git $HOME/.config/git
 *** [[./nvim][nvim]]
 [[./assets/nvim-welcome.png]]
 [[./assets/nvim-code.png]]
-[[./assets/nvim-org-codecompanio.png]]
+[[./assets/nvim-org-codecompanion.png]]
 [[./assets/nvim-overseer-logs.png]]
 [[./assets/nvim-kulala.png]]
 
