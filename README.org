@@ -17,11 +17,11 @@ ln -s $DOTFILES/git $HOME/.config/git
 #+end_src
 
 *** [[./nvim][nvim]]
-![](./assets/nvim-welcome.png)
-![](./assets/nvim-code.png)
-![](./assets/nvim-org-codecompanio.png)
-![](./assets/nvim-overseer-logs.png)
-![](./assets/nvim-kulala.png)
+[[./assets/nvim-welcome.png]]
+[[./assets/nvim-code.png]]
+[[./assets/nvim-org-codecompanio.png]]
+[[./assets/nvim-overseer-logs.png]]
+[[./assets/nvim-kulala.png]]
 
 Link it to your local config directory:
 
