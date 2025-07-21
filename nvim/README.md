@@ -12,6 +12,7 @@ This config was intended for personal use only, but currently I'm trying to make
 
 - Language support
   - All lsp servers are using out-of-the-box configurations from [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md)
+    (NOTE) you should check [./lua/tdk/core/lsp.lua](./lua/tdk/core/lsp.lua) and enable/disable LSP servers you need. To configure them, add configurations with their names into [./lsp](./lsp)
   - [blink.cmp](https://github.com/Saghen/blink.cmp) - autocompletion
   - [conform.nvim](https://github.com/stevearc/conform.nvim) - formatting
   - [nvim-dap](https://github.com/mfussenegger/nvim-dap) (with [nvim-dap-ui](https://github.com/rcarriga/nvim-dap-ui)) - debugging

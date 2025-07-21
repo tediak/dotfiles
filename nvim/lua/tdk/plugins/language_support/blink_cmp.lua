@@ -32,7 +32,7 @@ return {
       ['<c-k>'] = { 'select_prev', 'fallback' },
       ['<c-l>'] = { 'scroll_documentation_down', 'fallback' },
       ['<c-h>'] = { 'scroll_documentation_up', 'fallback' },
-      ['<cr>'] = {
+      ['<CR>'] = {
         function(cmp)
           if cmp.snippet_active() then
             return cmp.accept()
