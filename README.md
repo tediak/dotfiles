@@ -58,6 +58,13 @@ ln -s $DOTFILES/tmux $HOME/.config/tmux
 ```
 
 ### [zsh](./zsh)
+
+Link a config directory
+
+```sh
+ln -s $DOTFILES/zsh $HOME/.config/zsh
+```
+
 To use prompt and aliases, add this to your .zshrc:
 
 ```sh
