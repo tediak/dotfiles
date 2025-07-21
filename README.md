@@ -59,7 +59,8 @@ ln -s $DOTFILES/tmux $HOME/.config/tmux
 
 ### [zsh](./zsh)
 
-Link a config directory
+1. Install [oh-my-posh](https://ohmyposh.dev/docs/installation/linux#installation)
+2. Link a config directory:
 
 ```sh
 ln -s $DOTFILES/zsh $HOME/.config/zsh
