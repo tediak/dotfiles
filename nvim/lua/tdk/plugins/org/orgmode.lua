@@ -24,13 +24,14 @@ return {
         CANCELED = ':foreground grey :weight bold',
         DONE = ':foreground #00ff00 :weight bold',
       },
-      win_split_mode = 'vertical',
+      win_split_mode = 'float', -- '100vsplit'},
       org_startup_folded = 'overview',
       org_hide_leading_stars = true,
       org_ellipsis = ' [..]',
       org_startup_indented = true,
       org_hide_emphasis_markers = true,
       org_log_into_drawer = 'LOGBOOK',
+      org_use_tag_inheritance = false,
 
       -- Agenda settings
       org_agenda_files = '~/my/roam/**/*',
@@ -49,14 +50,18 @@ return {
             {
               org_agenda_overriding_header = 'High Priority TODOs',
               type = 'tags_todo',
-              match = '+PRIORITY="A"',
+              match = 'PRIORITY="A"',
               org_agenda_todo_ignore_deadlines = 'far',
             },
             {
               org_agenda_overriding_header = 'Work TODOs',
               type = 'tags_todo',
-              match = '+CATEGORY="work"',
-              org_agenda_todo_ignore_scheduled = 'all',
+              match = 'CATEGORY="work"',
+            },
+            {
+              org_agenda_overriding_header = 'Vault-related TODOs',
+              type = 'tags',
+              match = 'vault',
             },
             {
               org_agenda_overriding_header = 'Week Overview',
@@ -72,18 +77,47 @@ return {
 
       -- Capture templates
       org_capture_templates = {
-        t = {
-          description = 'Task',
-          template = '** TODO %?\n%U',
-          headline = 'Tasks',
-          properties = {
-            empty_lines = 1,
-          },
-        },
         n = {
           description = 'Note',
           template = '** %^{Title|New Entry}\n%U\n%?',
           headline = 'Inbox',
+          properties = {
+            empty_lines = 1,
+          },
+        },
+        l = {
+          description = 'Link',
+          template = '** %?\n[[%x][%(return string.match(string.gsub(\'%x\', \'/$\', \'\'), \'([^/]+)$\') or \'%x\')]]',
+          target = '~/my/roam/000-refile.org',
+          headline = 'Inbox',
+          properties = {
+            empty_lines = 1,
+          },
+        },
+        t = 'Task',
+        tp = {
+          description = 'Personal',
+          template = '** TODO %?',
+          target = '~/my/roam/002-tasks.org',
+          headline = 'Personal',
+          properties = {
+            empty_lines = 1,
+          },
+        },
+        tw = {
+          description = 'Work',
+          template = '** TODO %?',
+          target = '~/my/roam/002-tasks.org',
+          headline = 'Work',
+          properties = {
+            empty_lines = 1,
+          },
+        },
+        tr = {
+          description = 'Productivity',
+          template = '** TODO %?',
+          target = '~/my/roam/002-tasks.org',
+          headline = 'Productivity',
           properties = {
             empty_lines = 1,
           },
@@ -98,9 +132,9 @@ return {
         enabled = true,
         -- TODO: configure system notifications
         cron_enabled = false,
-        repeater_reminder_time = { 30, 5, 1 },
-        deadline_warning_reminder_time = { 120, 60, 10 },
-        reminder_time = { 30, 5, 1 },
+        repeater_reminder_time = { 120, 60, 30 },
+        deadline_warning_reminder_time = { 120, 60, 30, 10 },
+        reminder_time = { 120, 60, 30 },
       },
     })
 

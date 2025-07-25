@@ -53,7 +53,6 @@ return {
       dashboard.button('-', '  File Explorer'),
       dashboard.button('<Leader><Leader>', '  Find File'),
       dashboard.button('<Leader>fs', '  Live Grep'),
-      dashboard.button('q', '  Quit', ':qa<cr>'),
     }
 
     dashboard.section.footer.val = footer()

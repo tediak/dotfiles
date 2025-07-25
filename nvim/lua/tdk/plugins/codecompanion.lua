@@ -8,7 +8,7 @@ return {
       ft = { 'markdown', 'codecompanion' },
       opts = {
         code = {
-          style = 'normal',
+          style = 'normal'
         },
         heading = {
           icons = { ' ○ ', '○ ', '○ ', '○ ', '○ ', '○ ' },

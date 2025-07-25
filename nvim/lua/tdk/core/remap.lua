@@ -32,6 +32,9 @@ keymap.set('n', '[t', '<cmd>tabprevious<cr>', { desc = 'Previous tab' })
 keymap.set('n', ']T', '<cmd>tabmove +1<cr>', { desc = 'Move tab to the right' })
 keymap.set('n', '[T', '<cmd>tabmove -1<cr>', { desc = 'Move tab to the left' })
 
+-- Terminal
+keymap.set('t', '<esc>', '<c-\\><c-n>', { desc = 'Exit terminal mode' })
+
 -- LSP
 local lspMapOpts = { silent = true }
 lspMapOpts.desc = 'See available code actions'

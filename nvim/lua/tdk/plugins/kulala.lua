@@ -1,11 +1,10 @@
 return {
   'mistweaverco/kulala.nvim',
-  keys = {
-    { '<leader>Rs', desc = 'Send request' },
-  },
+  enabled = true,
   opts = {
     default_env = 'local',
     global_keymaps = true,
+    request_timeout = 10000,
     ui = {
       display_mode = 'split',
       split_direction = 'vertical',

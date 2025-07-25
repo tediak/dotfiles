@@ -17,6 +17,8 @@ return {
     formatters_by_ft = {
       lua = { 'stylua' },
       sql = { 'sqlfluff' },
+      javascript = { 'prettierd', 'prettier', stop_after_first = true },
+      typescript = { 'prettierd', 'prettier', stop_after_first = true },
       astro = { 'prettier' },
       http = { 'kulala' },
       json = { 'jq' },

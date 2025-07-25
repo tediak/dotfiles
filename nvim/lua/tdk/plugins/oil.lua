@@ -33,7 +33,6 @@ return {
     },
     view_options = {
       show_hidden = true,
-      is_always_hidden = function(name) return name == '.git' end,
     },
     float = {
       max_height = 0.6,
