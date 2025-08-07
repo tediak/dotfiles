@@ -3,7 +3,6 @@ return {
   version = '*',
   dependencies = {
     'kristijanhusak/vim-dadbod-completion',
-    'giuxtaposition/blink-cmp-copilot',
   },
   opts = {
     enabled = function()
@@ -30,8 +29,8 @@ return {
       ['<c-e>'] = { 'hide' },
       ['<c-j>'] = { 'select_next', 'fallback' },
       ['<c-k>'] = { 'select_prev', 'fallback' },
-      ['<c-l>'] = { 'scroll_documentation_down', 'fallback' },
-      ['<c-h>'] = { 'scroll_documentation_up', 'fallback' },
+      ['<m-f>'] = { 'scroll_documentation_down', 'fallback' },
+      ['<m-b>'] = { 'scroll_documentation_up', 'fallback' },
       ['<CR>'] = {
         function(cmp)
           if cmp.snippet_active() then
@@ -82,16 +81,9 @@ return {
       enabled = true,
     },
     sources = {
-      default = {
-        'dadbod',
-        'snippets',
-        'lsp',
-        'path',
-        'buffer',
-        'copilot',
-      },
+      default = { 'dadbod', 'snippets', 'lsp', 'path', 'buffer' },
       per_filetype = {
-        org = { 'orgmode', 'path', 'copilot' },
+        org = { 'orgmode', 'path' },
       },
       providers = {
         dadbod = {
@@ -106,12 +98,6 @@ return {
         },
         lsp = { score_offset = 10 },
         snippets = { score_offset = 50 },
-        copilot = {
-          name = 'copilot',
-          module = 'blink-cmp-copilot',
-          score_offset = 100,
-          async = true,
-        },
       },
     },
   },

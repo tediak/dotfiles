@@ -13,9 +13,9 @@ alias zhome="nvim ~/.config/zsh/tdk-home.zsh"
 alias zso="source ~/.zshrc"
 
 # Neovim Editor
-alias vim="nvim "
+# alias vim="nvim "
 alias nvimb="NVIM_APPNAME=nvim-back nvim "
-alias v="vim"
+alias v="nvim"
 
 # Sublime *
 alias text="subl"

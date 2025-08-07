@@ -40,8 +40,9 @@ local lspMapOpts = { silent = true }
 lspMapOpts.desc = 'See available code actions'
 keymap.set({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action, lspMapOpts)
 
-lspMapOpts.desc = 'Smart rename'
-keymap.set('n', '<leader>rn', vim.lsp.buf.rename, lspMapOpts)
+-- NOTE: now grn does it natively
+-- lspMapOpts.desc = 'Smart rename'
+-- keymap.set('n', '<leader>rn', vim.lsp.buf.rename, lspMapOpts)
 
 lspMapOpts.desc = 'Go to previous diagnostic'
 keymap.set('n', '[d', vim.diagnostic.goto_prev, lspMapOpts)

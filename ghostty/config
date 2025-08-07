@@ -23,7 +23,7 @@ cursor-color = #88ddff
 selection-background = #71517b
 selection-foreground = #a6accc
 
-background-opacity = 0.85
+background-opacity = 0.9
 background-blur-radius = 10
 
 font-family = Berkeley Mono
