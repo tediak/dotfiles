@@ -59,7 +59,7 @@ sudo cp $DOTFILES/tmux-sessionizer.zsh /usr/local/bin/ss
 ln -s $DOTFILES/tmux $HOME/.config/tmux
 ```
 
-WARNING: Check out line 16 of the [script](./tmux-sessionizer.zsh:16), you probably want to adapt directories used in find command.
+WARNING: Check out line 16 of the [script](./tmux-sessionizer.zsh), you probably want to adapt directories used in find command.
 
 ### [zsh](./zsh)
 
