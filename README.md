@@ -11,6 +11,7 @@ ln -s $DOTFILES/ghostty/config "$HOME/Library/Application Support/com.mitchellh.
 ```
 
 ### [git](./git)
+
 To use this config, run:
 
 ```sh
@@ -59,7 +60,7 @@ sudo cp $DOTFILES/tmux-sessionizer.zsh /usr/local/bin/ss
 ln -s $DOTFILES/tmux $HOME/.config/tmux
 ```
 
-WARNING: Check out line 16 of the [script](./tmux-sessionizer.zsh), you probably want to adapt directories used in find command.
+> ⚠️ Warning: Check out line 16 of the [script](./tmux-sessionizer.zsh), you probably want to adapt directories used in find command.
 
 ### [zsh](./zsh)
 
@@ -80,5 +81,5 @@ source $ZSH/tdk-prompt.zsh
 # source $ZSH/tdk-aliases.zsh
 ```
 
-(check aliases before enabling them)
+> ⚠️ Warning: check aliases before enabling them
 
