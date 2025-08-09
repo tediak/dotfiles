@@ -18,9 +18,6 @@ alias lt="ls -lht"
 alias lat="ls -lAht"
 alias dud='du -d 1 -h'
 alias ff='find . -type f -name'
-alias rm='rm -i'
-alias cp='cp -i'
-alias mv='mv -i'
 
 # Git
 alias gst="git status"

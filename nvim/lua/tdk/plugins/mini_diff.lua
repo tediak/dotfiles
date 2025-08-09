@@ -1,6 +1,7 @@
 return {
   'echasnovski/mini.diff',
   version = '*',
+  lazy = false,
   keys = {
     {
       '<leader>to',

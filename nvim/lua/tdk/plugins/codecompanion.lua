@@ -3,18 +3,6 @@ return {
   dependencies = {
     'nvim-lua/plenary.nvim',
     'nvim-treesitter/nvim-treesitter',
-    {
-      'MeanderingProgrammer/render-markdown.nvim',
-      ft = { 'markdown', 'codecompanion' },
-      opts = {
-        code = {
-          style = 'normal'
-        },
-        heading = {
-          icons = { ' ○ ', '○ ', '○ ', '○ ', '○ ', '○ ' },
-        },
-      },
-    },
   },
   lazy = false,
   keys = {

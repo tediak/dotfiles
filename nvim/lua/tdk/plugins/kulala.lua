@@ -1,6 +1,5 @@
 return {
   'mistweaverco/kulala.nvim',
-  enabled = true,
   opts = {
     default_env = 'local',
     global_keymaps = true,

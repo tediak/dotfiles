@@ -3,6 +3,7 @@ return {
   dependencies = {
     'nvim-tree/nvim-web-devicons',
   },
+  lazy = false,
   keys = {
     { '-', '<cmd>Oil<cr>', desc = 'Open oil buffer' },
   },
@@ -39,5 +40,4 @@ return {
       max_width = 0.4,
     },
   },
-  lazy = false,
 }
