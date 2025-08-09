@@ -51,11 +51,15 @@ alias nvim-alt="NVIM_APPNAME=nvim-alternative nvim "
 and after sourcing the file, you can run `nvim-alt` instead of default `nvim`.
 
 ### [tmux](./tmux)
-To use config, run:
+
+Config is presented by [tmux](./tmux) directory with conf files and [script](./tmux-sessionizer.zsh) for quick switching between tmux sessions. To use config, run:
 
 ```sh
+sudo cp $DOTFILES/tmux-sessionizer.zsh /usr/local/bin/ss
 ln -s $DOTFILES/tmux $HOME/.config/tmux
 ```
+
+WARNING: Check out line 16 of the [script](./tmux-sessionizer.zsh:16), you probably want to adapt directories used in find command.
 
 ### [zsh](./zsh)
 

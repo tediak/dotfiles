@@ -18,7 +18,7 @@ return {
       desc = 'Go to file',
     },
     {
-      '<leader>fb',
+      '<c-b>',
       function()
         require('fzf-lua').buffers({
           previewer = true,
@@ -76,12 +76,12 @@ return {
       desc = 'Search for treesitter vars',
     },
     {
-      'gr',
+      'grr',
       '<cmd>FzfLua lsp_references<cr>',
       desc = 'Show LSP references',
     },
     {
-      'ggr',
+      'grR',
       function()
         require('fzf-lua').lsp_references({
           jump1_action = require('fzf-lua').actions.file_vsplit,
@@ -132,7 +132,13 @@ return {
     'borderless',
     defaults = {
       git_icons = false,
-      file_icons = true,
+      winopts = {
+        height = 0.4, -- 40% of the screen height
+        width = 1.0, -- full width
+        row = 1.0, -- bottom of the screen
+        col = 0.5, -- centered horizontally
+        border = 'none', -- no border for true ivy look
+      },
     },
   },
 }

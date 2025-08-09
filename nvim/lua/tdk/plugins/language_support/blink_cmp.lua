@@ -29,8 +29,8 @@ return {
       ['<c-e>'] = { 'hide' },
       ['<c-j>'] = { 'select_next', 'fallback' },
       ['<c-k>'] = { 'select_prev', 'fallback' },
-      ['<m-f>'] = { 'scroll_documentation_down', 'fallback' },
-      ['<m-b>'] = { 'scroll_documentation_up', 'fallback' },
+      ['<c-l>'] = { 'scroll_documentation_down', 'fallback' },
+      ['<c-h>'] = { 'scroll_documentation_up', 'fallback' },
       ['<CR>'] = {
         function(cmp)
           if cmp.snippet_active() then
@@ -42,17 +42,17 @@ return {
         'snippet_forward',
         'fallback',
       },
-      ['<Tab>'] = {
-        function(cmp)
-          if cmp.snippet_active() then
-            return cmp.accept()
-          else
-            return cmp.select_and_accept()
-          end
-        end,
-        'snippet_forward',
-        'fallback',
-      },
+      -- ['<Tab>'] = {
+      --   function(cmp)
+      --     if cmp.snippet_active() then
+      --       return cmp.accept()
+      --     else
+      --       return cmp.select_and_accept()
+      --     end
+      --   end,
+      --   'snippet_forward',
+      --   'fallback',
+      -- },
     },
     completion = {
       accept = {
@@ -78,7 +78,7 @@ return {
       },
     },
     cmdline = {
-      enabled = true,
+      enabled = false,
     },
     sources = {
       default = { 'dadbod', 'snippets', 'lsp', 'path', 'buffer' },

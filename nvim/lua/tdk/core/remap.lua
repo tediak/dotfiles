@@ -35,6 +35,9 @@ keymap.set('n', '[T', '<cmd>tabmove -1<cr>', { desc = 'Move tab to the left' })
 -- Terminal
 keymap.set('t', '<esc>', '<c-\\><c-n>', { desc = 'Exit terminal mode' })
 
+-- Disable <Tab> completion in command-line mode
+-- keymap.set('c', '<Tab>', '<Tab>', { noremap = true })
+
 -- LSP
 local lspMapOpts = { silent = true }
 lspMapOpts.desc = 'See available code actions'

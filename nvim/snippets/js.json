@@ -7,10 +7,17 @@
     "description": "Export * from module"
   },
   "Console log": {
-    "prefix": "cl",
+    "prefix": "log",
     "body": [
       "console.log($1);"
     ],
     "description": "Console log"
+  },
+  "Console dir": {
+    "prefix": "log",
+    "body": [
+      "console.dir($1);"
+    ],
+    "description": "Console dir"
   }
 }

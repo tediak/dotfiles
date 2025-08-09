@@ -19,7 +19,7 @@ return {
       sql = { 'sqlfluff' },
       javascript = { 'prettierd', 'prettier', stop_after_first = true },
       typescript = { 'prettierd', 'prettier', stop_after_first = true },
-      astro = { 'prettier' },
+      astro = { 'prettierd', 'prettier', stop_after_first = true },
       http = { 'kulala' },
       json = { 'jq' },
     },

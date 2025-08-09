@@ -15,6 +15,7 @@ return {
         'javascript',
         'typescript',
         'latex',
+        'astro'
       },
       auto_install = false,
       modules = {},

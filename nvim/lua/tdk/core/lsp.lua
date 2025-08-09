@@ -6,6 +6,9 @@ vim.lsp.enable({
   'ts_ls',
   'eslint',
 
+  -- Astro
+  'astro',
+
   -- Go
   'gopls',
 
@@ -14,6 +17,12 @@ vim.lsp.enable({
 
   -- JSON
   'jsonls',
+
+  -- CSS
+  'cssls',
+
+  -- Markdown
+  'markdown_oxide',
 })
 
 vim.diagnostic.config({
