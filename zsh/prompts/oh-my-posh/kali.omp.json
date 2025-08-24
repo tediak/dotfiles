@@ -24,7 +24,7 @@
             "branch_identical_icon": ""
           },
           "style": "plain",
-          "template": "<green>-[</><cyan>{{ .HEAD }}{{ if or (.Working.Changed) }}<red> {{ .Working.String }}</>{{ else }}{{end}}{{ if (.Staging.Changed) }} <lightGreen>{{ .Staging.String }}</>{{ else }}{{ end }}</></>{{ if .Ahead }}<yellow> \uf062{{ .Ahead }}</>{{ else }}{{end}}{{ if .Behind }}<yellow> \uf063{{ .Behind }}</>{{ else }}{{end}}<green>]</>",
+          "template": "<green>-[</><cyan>{{ .HEAD }}{{ if or (.Working.Changed) }}<red> {{ .Working.String }}</>{{ else }}{{end}}{{ if (.Staging.Changed) }} <lightGreen>{{ .Staging.String }}</>{{ else }}{{ end }}</></>{{ if .Ahead }}<yellow> {{ .Ahead }}</>{{ else }}{{end}}{{ if .Behind }}<yellow> {{ .Behind }}</>{{ else }}{{end}}<green>]</>",
           "type": "git"
         }
       ],

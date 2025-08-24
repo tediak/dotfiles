@@ -26,3 +26,6 @@ alias btm="btm --celsius"
 
 # TLauncher
 alias tlauncher="java -Xms24g -Xmx24g -jar ~/my/tlauncher/TLauncher.jar"
+
+# alias excalidraw_export="excalidraw_export --embed-fonts --rename-fonts"
+alias notes="wordgrinder /Users/tediak/.notes/main.wg"

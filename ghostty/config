@@ -39,7 +39,9 @@ adjust-font-baseline = 0%
 window-theme = auto
 window-vsync = false
 window-save-state = always
-window-decoration = false
+window-decoration = true
+window-padding-y = 0
+window-padding-x = 2
 
 macos-non-native-fullscreen = visible-menu
 macos-option-as-alt = true

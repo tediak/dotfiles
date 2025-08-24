@@ -3,6 +3,7 @@ return {
   version = '*',
   dependencies = {
     'kristijanhusak/vim-dadbod-completion',
+    'fang2hou/blink-copilot',
   },
   opts = {
     enabled = function()
@@ -81,23 +82,29 @@ return {
       enabled = false,
     },
     sources = {
-      default = { 'dadbod', 'snippets', 'lsp', 'path', 'buffer' },
+      default = { 'copilot', 'dadbod', 'snippets', 'lsp', 'path', 'buffer' },
       per_filetype = {
-        org = { 'orgmode', 'path' },
+        org = { 'copilot', 'orgmode', 'snippets', 'path' },
       },
       providers = {
         dadbod = {
           name = 'dadbod',
           module = 'vim_dadbod_completion.blink',
-          score_offset = 50,
+          score_offset = 20,
         },
         orgmode = {
           name = 'Orgmode',
           module = 'orgmode.org.autocompletion.blink',
           fallbacks = { 'buffer' },
         },
-        lsp = { score_offset = 10 },
-        snippets = { score_offset = 50 },
+        lsp = { score_offset = 11 },
+        snippets = { score_offset = 10 },
+        copilot = {
+          name = 'copilot',
+          module = 'blink-copilot',
+          score_offset = 10,
+          async = true,
+        },
       },
     },
   },

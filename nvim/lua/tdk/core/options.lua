@@ -1,10 +1,10 @@
+local opt = vim.opt
+
 -- Enable exrc
-vim.o.exrc = true
+opt.exrc = true
 
 -- Background always in dark mode
-vim.o.background = 'dark'
-
-local opt = vim.opt
+opt.background = 'dark'
 
 -- Folding settings
 opt.foldmethod = 'expr'

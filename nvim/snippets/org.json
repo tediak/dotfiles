@@ -1,0 +1,10 @@
+{
+  "Src Block": {
+    "prefix": "src",
+    "body": [
+      "#+begin_src $1",
+      "$2",
+      "#+end_src"
+    ]
+  }
+}

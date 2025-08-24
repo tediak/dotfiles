@@ -15,6 +15,22 @@ return {
     },
   },
   opts = {
+    strategies = {
+      chat = {
+        adapter = {
+          name = 'copilot',
+          model = 'gpt-5',
+        },
+      },
+      inline = {
+        adapter = 'copilot',
+        model = 'gpt-5',
+      },
+      cmd = {
+        adapter = 'copilot',
+        model = 'gpt-5',
+      },
+    },
     display = {
       chat = {
         window = {

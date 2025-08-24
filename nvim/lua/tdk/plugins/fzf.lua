@@ -109,12 +109,12 @@ return {
       desc = 'Show LSP implementations',
     },
     {
-      'gt',
+      'grt',
       '<cmd>FzfLua lsp_typedefs<cr>',
       desc = 'Show LSP type definitions',
     },
     {
-      'ggt',
+      'grT',
       function()
         require('fzf-lua').lsp_typedefs({
           jump1_action = require('fzf-lua').actions.file_vsplit,
