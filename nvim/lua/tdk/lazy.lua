@@ -26,7 +26,7 @@ require('lazy').setup({
     { import = 'tdk.plugins.org' },
     { import = 'tdk.colorschemes' },
   },
-  install = { colorscheme = { 'poimandres' } },
+  install = { colorscheme = { 'default' } },
   checker = { enabled = false },
   change_detection = {
     enabled = false,

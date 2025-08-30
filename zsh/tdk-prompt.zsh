@@ -28,5 +28,5 @@ git_segment() {
 }
 
 setopt PROMPT_SUBST
-PROMPT=$'%F{2}[%f%F{blue}%4~%f%F{2}]%f\n %B%F{3}%(!.#.λ)%f%b '
+PROMPT=$'%F{2}[%f%F{blue}%4~%f%F{2}]%f %B%F{3}%(!.#.λ)%f%b '
 RPROMPT=$'$(git_segment)'
