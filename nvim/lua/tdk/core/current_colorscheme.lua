@@ -1,86 +1,61 @@
+local function hl(group, spec) vim.api.nvim_set_hl(0, group, spec) end
+
+local overrides = {
+  default = function()
+    -- transparent background
+    hl('Normal', { bg = 'NONE' })
+    hl('WinSeparator', { fg = '#121212' })
+
+    hl('PmenuSbar', { bg = 'NONE' })
+    hl('PmenuThumb', { bg = 'NONE' })
+  end,
+
+  poimandres = function()
+    -- nvim-orgmode tweaks
+    hl('@org.headline.level1', { fg = '#F7768E', bold = true })
+    hl('@org.headline.level2', { fg = '#9ECE6A', bold = true })
+    hl('@org.headline.level3', { fg = '#7AA2F7', bold = true })
+
+    -- brighter verbatim / inline code
+    hl('@org.verbatim', { fg = '#60d7d7', bold = true })
+    hl('@org.code', { fg = '#87afd7' })
+
+    -- window separator + misc UI
+    hl('WinSeparator', { fg = '#121212' })
+    hl('RenderMarkdownCode', { bg = 'NONE' })
+    hl('NotificationInfo', { fg = '#e4f0fb', bg = 'NONE' })
+    hl('Folded', { bg = 'NONE' })
+
+    -- mini.statusline custom components
+    hl('MiniStatuslineModeInsert', { fg = '#000000', bg = '#87d7ff' })
+    hl('MiniStatuslineDevInfo', { fg = '#000000', bg = '#87d7ff' })
+
+    -- fzf-lua picker transparency
+    hl('PmenuSbar', { bg = 'NONE' })
+  end,
+
+  oxocarbon = function()
+    -- transparent backgrounds
+    hl('Normal', { bg = 'NONE' })
+    hl('NormalNC', { bg = 'NONE' })
+  end,
+
+  gruvbox = function()
+    -- fzf-lua picker transparency
+    hl('PmenuSbar', { bg = 'NONE' })
+    hl('PmenuThumb', { bg = 'NONE' })
+  end
+}
+
+local function apply(name)
+  local fn = overrides[name]
+  if fn then pcall(fn) end
+end
+
+vim.api.nvim_create_autocmd('ColorScheme', {
+  group = vim.api.nvim_create_augroup('TDKColorschemeOverrides', { clear = true }),
+  pattern = '*',
+  callback = function() apply(vim.g.colors_name) end,
+})
+
 vim.cmd.colorscheme('default')
-
--- Set background to transparent
-vim.api.nvim_set_hl(0, 'Normal', { bg = 'NONE' })
-
--- Fix too bright vertical window separator
-vim.api.nvim_set_hl(0, 'WinSeparator', {
-  fg = '#121212',
-})
-
-vim.api.nvim_set_hl(0, 'PmenuSbar', {
-  bg = 'NONE',
-})
-
-vim.api.nvim_set_hl(0, 'PmenuThumb', {
-  bg = 'NONE',
-})
-
--- vim.cmd.colorscheme('poimandres')
---
--- -- nvim-orgmode tweaks
--- vim.api.nvim_set_hl(0, '@org.headline.level1', {
---   -- red
---   fg = '#F7768E',
---   bold = true,
--- })
---
--- vim.api.nvim_set_hl(0, '@org.headline.level2', {
---   -- green
---   fg = '#9ECE6A',
---   bold = true,
--- })
---
--- vim.api.nvim_set_hl(0, '@org.headline.level3', {
---   -- blue
---   fg = '#7AA2F7',
---   bold = true,
--- })
---
--- -- brighter verbatim (in orgmode)
--- vim.api.nvim_set_hl(0, '@org.verbatim', {
---   fg = '#60d7d7',
---   bold = true,
--- })
---
--- -- brighter inline code (in orgmode)
--- vim.api.nvim_set_hl(0, '@org.code', {
---   fg = '#87afd7',
--- })
---
--- -- fix too bright vertical window separator
--- vim.api.nvim_set_hl(0, 'WinSeparator', {
---   fg = '#121212',
--- })
---
--- -- fix bad rendering of code blocks in codecompanion chat
--- vim.api.nvim_set_hl(0, 'RenderMarkdownCode', {
---   bg = 'NONE',
--- })
---
--- -- fix bad rendering of notifications in vim-dadbod-ui
--- vim.api.nvim_set_hl(0, 'NotificationInfo', {
---   fg = '#e4f0fb',
---   bg = 'NONE',
--- })
---
--- -- transparent background for folded items
--- vim.api.nvim_set_hl(0, 'Folded', {
---   bg = 'NONE',
--- })
---
--- -- mini.statusline custom components
--- vim.api.nvim_set_hl(0, 'MiniStatuslineModeInsert', {
---   fg = '#000000',
---   bg = '#87d7ff',
--- })
---
--- vim.api.nvim_set_hl(0, 'MiniStatuslineDevInfo', {
---   fg = '#000000',
---   bg = '#87d7ff',
--- })
---
--- -- transparent background for fzf-lua picker
--- vim.api.nvim_set_hl(0, 'PmenuSbar', {
---   bg = 'NONE',
--- })

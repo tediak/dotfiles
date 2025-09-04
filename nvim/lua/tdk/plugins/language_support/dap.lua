@@ -28,8 +28,8 @@ return {
   },
   config = function()
     local dap = require('dap')
-    local ui = require('dapui')
     local dap_go = require('dap-go')
+    local ui = require('dapui')
 
     ui.setup()
 

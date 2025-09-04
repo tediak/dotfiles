@@ -15,6 +15,24 @@ palette = 13=#fcafe9
 palette = 14=#addbff
 palette = 15=#ffffff
 
+palette = 0=#4f5258
+palette = 1=#ffc0b9
+palette = 2=#b3f6c0
+palette = 3=#fce094
+palette = 4=#a6dbff
+palette = 5=#ffcaff
+palette = 6=#8cf8f7
+palette = 7=#e0e2ea
+
+palette = 8=#4f5258
+palette = 9=#ffc0b9
+palette = 10=#b3f6c0
+palette = 11=#fce094
+palette = 12=#a6dbff
+palette = 13=#ffcaff
+palette = 14=#8cf8f7
+palette = 15=#e0e2ea
+
 background = #000000
 foreground = #e0e2ea
 
@@ -23,8 +41,8 @@ cursor-color = #88ddff
 selection-background = #71517b
 selection-foreground = #a6accc
 
-background-opacity = 0.86
-background-blur-radius = 10
+background-opacity = 1
+background-blur-radius = 0
 
 font-family = Berkeley Mono
 font-size = 12

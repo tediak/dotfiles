@@ -18,7 +18,7 @@ git_segment() {
     case $y in M) ((unstaged_added++));; D) ((unstaged_deleted++));; esac
   done < <(git status --porcelain 2>/dev/null)
 
-  local seg="%F{2}[%f%F{blue}${branch}%f"
+  local seg="%F{2}-[%f%F{blue}${branch}%f"
   ((unstaged_added))   && seg+=" %F{red}+${unstaged_added}%f"
   ((unstaged_deleted)) && seg+=" %F{red}-${unstaged_deleted}%f"
   ((staged_added))     && seg+=" %B%F{green}+${staged_added}%f%b"
@@ -28,5 +28,5 @@ git_segment() {
 }
 
 setopt PROMPT_SUBST
-PROMPT=$'%F{2}[%f%F{blue}%4~%f%F{2}]%f %B%F{3}%(!.#.λ)%f%b '
-RPROMPT=$'$(git_segment)'
+PROMPT=$'%F{2}[%f%F{blue}%4~%f%F{2}]%f$(git_segment) %B%F{yellow}λ%f%b '
+RPROMPT=$''
