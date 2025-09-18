@@ -1,144 +1,141 @@
-return {
-  'ibhagwan/fzf-lua',
-  dependencies = {
-    'nvim-tree/nvim-web-devicons',
-  },
-  keys = {
-    {
-      '<leader><leader>',
-      function()
-        require('fzf-lua').files({
-          cwd_only = true,
-          previewer = false,
-          cwd_prompt = false,
-          cwd_header = true,
-          formatter = 'path.filename_first',
-        })
-      end,
-      desc = 'Go to file',
-    },
-    {
-      '<c-b>',
-      function()
-        require('fzf-lua').buffers({
-          previewer = true,
-        })
-      end,
-      desc = 'Go to buffer',
-    },
-    {
-      '<leader>fs',
-      function()
-        require('fzf-lua').grep({
-          previewer = true,
-          glob_pattern = '*',
-        })
-      end,
-      desc = 'Search in files',
-    },
-    {
-      '<leader>fS',
-      function()
-        require('fzf-lua').live_grep_native({
-          previewer = true,
-          glob_pattern = '*',
-        })
-      end,
-      desc = 'Search in files (live mode)',
-    },
-    {
+vim.pack.add({
+  'https://github.com/nvim-tree/nvim-web-devicons',
+  'https://github.com/ibhagwan/fzf-lua',
+})
 
-      '<leader>fis',
-      function()
-        require('fzf-lua').lgrep_curbuf({
-          previewer = true,
-          glob_pattern = '*',
-        })
-      end,
-      desc = 'Search in current buffer',
-    },
-    {
-      '<leader>fcs',
-      function()
-        require('fzf-lua').colorschemes({
-          previewer = false,
-        })
-      end,
-      desc = 'Pick colorscheme',
-    },
-    {
-      '<leader>fv',
-      function()
-        require('fzf-lua').treesitter({
-          previewer = true,
-        })
-      end,
-      desc = 'Search for treesitter vars',
-    },
-    {
-      'grr',
-      '<cmd>FzfLua lsp_references<cr>',
-      desc = 'Show LSP references',
-    },
-    {
-      'grR',
-      function()
-        require('fzf-lua').lsp_references({
-          jump1_action = require('fzf-lua').actions.file_vsplit,
-        })
-      end,
-      desc = 'Show LSP references (vertical split)',
-    },
-    {
-      'gd',
-      '<cmd>FzfLua lsp_definitions<cr>',
-      desc = 'Show LSP definitions',
-    },
-    {
-      'ggd',
-      function()
-        require('fzf-lua').lsp_definitions({
-          jump1_action = require('fzf-lua').actions.file_vsplit,
-        })
-      end,
-      desc = 'Show LSP definitions (vertical split)',
-    },
-    {
-      'gi',
-      '<cmd>FzfLua lsp_implementations<cr>',
-      desc = 'Show LSP implementations',
-    },
-    {
-      'grt',
-      '<cmd>FzfLua lsp_typedefs<cr>',
-      desc = 'Show LSP type definitions',
-    },
-    {
-      'grT',
-      function()
-        require('fzf-lua').lsp_typedefs({
-          jump1_action = require('fzf-lua').actions.file_vsplit,
-        })
-      end,
-      desc = 'Show LSP type definitions (vertical split)',
-    },
-    {
-      '<leader>D',
-      '<cmd>FzfLua lsp_document_diagnostics<CR>',
-      desc = 'Show buffer diagnostics',
+local fzf = require('fzf-lua')
+
+fzf.setup({
+  'borderless',
+  defaults = {
+    git_icons = false,
+    winopts = {
+      height = 0.4, -- 40% of the screen height
+      width = 1.0, -- full width
+      row = 1.0, -- bottom of the screen
+      col = 0.5, -- centered horizontally
+      border = 'none', -- no border for true ivy look
     },
   },
-  opts = {
-    'borderless',
-    defaults = {
-      git_icons = false,
-      winopts = {
-        height = 0.4, -- 40% of the screen height
-        width = 1.0, -- full width
-        row = 1.0, -- bottom of the screen
-        col = 0.5, -- centered horizontally
-        border = 'none', -- no border for true ivy look
-      },
-    },
-  },
-}
+})
+
+-- Use fzf-lua picker as default one instead of vim.ui.select
+fzf.register_ui_select()
+
+vim.keymap.set(
+  'n',
+  '<leader><leader>',
+  function()
+    fzf.files({
+      cwd_only = true,
+      previewer = false,
+      cwd_prompt = false,
+      cwd_header = true,
+      formatter = 'path.filename_first',
+    })
+  end,
+  { desc = 'Go to file' }
+)
+
+vim.keymap.set('n', '<c-b>', function() fzf.buffers({ previewer = true }) end, { desc = 'Go to buffer' })
+
+vim.keymap.set(
+  'n',
+  '<leader>fs',
+  function()
+    fzf.grep({
+      previewer = true,
+      glob_pattern = '*',
+    })
+  end,
+  { desc = 'Search in files' }
+)
+
+vim.keymap.set(
+  'n',
+  '<leader>fS',
+  function()
+    fzf.live_grep_native({
+      previewer = true,
+      glob_pattern = '*',
+    })
+  end,
+  { desc = 'Search in files (live mode)' }
+)
+
+vim.keymap.set(
+  'n',
+  '<leader>fis',
+  function()
+    fzf.lgrep_curbuf({
+      previewer = true,
+      glob_pattern = '*',
+    })
+  end,
+  { desc = 'Search in current buffer' }
+)
+
+vim.keymap.set(
+  'n',
+  '<leader>fcs',
+  function()
+    fzf.colorschemes({
+      previewer = false,
+    })
+  end,
+  { desc = 'Pick colorscheme' }
+)
+
+vim.keymap.set(
+  'n',
+  '<leader>fv',
+  function()
+    fzf.treesitter({
+      previewer = true,
+    })
+  end,
+  { desc = 'Search for treesitter vars' }
+)
+
+vim.keymap.set('n', 'grr', fzf.lsp_references, { desc = 'Show LSP references' })
+
+vim.keymap.set(
+  'n',
+  'grR',
+  function()
+    fzf.lsp_references({
+      jump1_action = fzf.actions.file_vsplit,
+    })
+  end,
+  { desc = 'Show LSP references (vertical split)' }
+)
+
+vim.keymap.set('n', 'gd', fzf.lsp_definitions, { desc = 'Show LSP definitions' })
+
+vim.keymap.set(
+  'n',
+  'gD',
+  function()
+    fzf.lsp_definitions({
+      jump1_action = fzf.actions.file_vsplit,
+    })
+  end,
+  { desc = 'Show LSP definitions (vertical split)' }
+)
+
+vim.keymap.set('n', 'gi', fzf.lsp_implementations, { desc = 'Show LSP implementations' })
+
+vim.keymap.set('n', 'grt', fzf.lsp_typedefs, { desc = 'Show LSP type definitions' })
+
+vim.keymap.set(
+  'n',
+  'grT',
+  function()
+    fzf.lsp_typedefs({
+      jump1_action = fzf.actions.file_vsplit,
+    })
+  end,
+  { desc = 'Show LSP type definitions (vertical split)' }
+)
+
+vim.keymap.set('n', '<leader>D', fzf.lsp_document_diagnostics, { desc = 'Show buffer diagnostics' })

@@ -19,3 +19,6 @@
 
 [tag]
   sort = -taggerdate
+
+[delta]
+  syntax-theme = base16

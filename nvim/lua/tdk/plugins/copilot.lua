@@ -1,8 +1,8 @@
-return {
-  'zbirenbaum/copilot.lua',
-  cmd = 'Copilot',
-  event = 'InsertEnter',
-  opts = {
+vim.pack.add({ 'https://github.com/zbirenbaum/copilot.lua' })
+
+local copilot = require('copilot')
+
+copilot.setup({
     suggestion = {
       enabled = true,
       auto_trigger = false,
@@ -20,5 +20,4 @@ return {
     panel = {
       enabled = false,
     },
-  },
-}
+  })

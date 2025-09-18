@@ -1,5 +1,9 @@
 local keymap = vim.keymap
 
+-- Set global leader
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
+
 -- Utilities
 keymap.set('n', '<leader>x', '<cmd>close<cr>', { desc = 'Close current tab/pane' })
 keymap.set('n', '<leader>nh', ':nohl<CR>', { desc = 'Clear search highlights' })
@@ -19,10 +23,6 @@ keymap.set('n', '<c-u>', '<c-u>zz', { desc = 'Center the screen after moving hal
 keymap.set('n', 'n', 'nzz', { desc = 'Center a screen after moving to next word occurence' })
 keymap.set('n', 'N', 'Nzz', { desc = 'Center a screen after moving to next word occurence' })
 
--- Disable gg ang G (I'm using [[ and ]] as alternatives)
-vim.keymap.set('n', 'gg', '<Nop>', { noremap = true, silent = true })
-vim.keymap.set('n', 'G', '<Nop>', { noremap = true, silent = true })
-
 -- Tabs management
 keymap.set('n', '<leader>tn', '<cmd>tabnew<cr>', { desc = 'New tab' })
 keymap.set('n', '<leader>tx', '<cmd>tabclose<cr>', { desc = 'Close tab' })
@@ -31,6 +31,9 @@ keymap.set('n', ']t', '<cmd>tabnext<cr>', { desc = 'Next tab' })
 keymap.set('n', '[t', '<cmd>tabprevious<cr>', { desc = 'Previous tab' })
 keymap.set('n', ']T', '<cmd>tabmove +1<cr>', { desc = 'Move tab to the right' })
 keymap.set('n', '[T', '<cmd>tabmove -1<cr>', { desc = 'Move tab to the left' })
+
+-- Package Manager Update
+vim.api.nvim_create_user_command('PackUpdate', function() vim.pack.update() end, { desc = 'Update all packages' })
 
 -- Terminal
 keymap.set('t', '<esc>', '<c-\\><c-n>', { desc = 'Exit terminal mode' })

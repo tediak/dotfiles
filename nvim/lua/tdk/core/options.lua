@@ -23,17 +23,52 @@ opt.autoindent = true -- copy indent from the current line when starting a new l
 
 -- Neovim tabs (show only file name in tabline)
 opt.showtabline = 1
-function _G.TabLine()
+function TabLine()
   local s = ''
-  for i = 1, vim.fn.tabpagenr('$') do
-    local winnr = vim.fn.tabpagewinnr(i)
-    local buflist = vim.fn.tabpagebuflist(i)
-    local bufnr = buflist[winnr]
-    local bufname = vim.fn.bufname(bufnr)
-    local filename = vim.fn.fnamemodify(bufname, ':t')
-    local hl = (i == vim.fn.tabpagenr()) and '%#TabLineSel#' or '%#TabLine#'
-    s = s .. hl .. ' ' .. (filename ~= '' and filename or '[No Name]') .. ' '
+  local current = vim.api.nvim_get_current_tabpage()
+  local tabs = vim.api.nvim_list_tabpages()
+
+  for i, tab in ipairs(tabs) do
+    local tabnr = vim.api.nvim_tabpage_get_number(tab)
+    local hl = (tab == current) and '%#TabLineSel#' or '%#TabLine#'
+    s = s .. '%' .. tabnr .. 'T' .. hl .. ' '
+
+    local wins = vim.api.nvim_tabpage_list_wins(tab)
+
+    -- Mark modified if any buffer in the tab is modified
+    local modified = false
+    for _, win in ipairs(wins) do
+      local buf = vim.api.nvim_win_get_buf(win)
+      if vim.api.nvim_buf_get_option(buf, 'modified') then
+        modified = true
+        break
+      end
+    end
+
+    -- Use the current window's buffer name within the tab
+    local cur_win_index = vim.fn.tabpagewinnr(tabnr)
+    local cur_win = wins[cur_win_index] or wins[1]
+    local cur_buf = vim.api.nvim_win_get_buf(cur_win)
+    local name = vim.api.nvim_buf_get_name(cur_buf)
+    local filename = vim.fn.fnamemodify(name, ':t')
+    if filename == '' then filename = '[No Name]' end
+
+    local label = ''
+    if modified then label = label .. '*' end
+    -- if label ~= '' then label = label .. ' ' end
+
+    s = s .. filename .. label .. ' '
+
+    -- End this tab's click target before the separator
+    s = s .. '%T'
+
+    -- Add a non-clickable separator between tabs
+    if i < #tabs then
+      s = s .. '%#TabLineFill#|%#TabLine#'
+    end
   end
+
+  -- Fill the rest of the tabline
   s = s .. '%#TabLineFill#'
   return s
 end
@@ -54,7 +89,7 @@ opt.splitright = true
 opt.splitbelow = true
 
 -- Sign column
-opt.signcolumn = 'yes'
+opt.signcolumn = 'yes:1'
 
 -- Characters highlighting leaning whitespace characters
 opt.list = true
@@ -63,6 +98,9 @@ opt.listchars:append({
   lead = ' ',
   tab = '  ',
 })
+
+-- Characters after EOF
+-- opt.fillchars:append({ eob = " " })
 
 -- Conceal Level
 opt.conceallevel = 3

@@ -20,9 +20,6 @@ vim.lsp.enable({
 
   -- CSS
   'cssls',
-
-  -- Markdown
-  'markdown_oxide',
 })
 
 vim.diagnostic.config({

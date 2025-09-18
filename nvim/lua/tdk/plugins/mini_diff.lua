@@ -1,17 +1,11 @@
-return {
-  'echasnovski/mini.diff',
-  version = '*',
-  lazy = false,
-  keys = {
-    {
-      '<leader>to',
-      function() require('mini.diff').toggle_overlay() end,
-      desc = 'Toggle diff overlay',
-    },
+vim.pack.add({ 'https://github.com/echasnovski/mini.diff' })
+
+local mini_diff = require('mini.diff')
+
+mini_diff.setup({
+  view = {
+    style = 'number',
   },
-  opts = {
-    view = {
-      style = 'number',
-    },
-  },
-}
+})
+
+vim.keymap.set('n', '<leader>to', mini_diff.toggle_overlay, { desc = 'Toggle diff overlay' })

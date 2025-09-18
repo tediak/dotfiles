@@ -58,4 +58,4 @@ vim.api.nvim_create_autocmd('ColorScheme', {
   callback = function() apply(vim.g.colors_name) end,
 })
 
-vim.cmd.colorscheme('default')
+vim.cmd.colorscheme('poimandres')

@@ -1,13 +1,9 @@
-return {
-  'stevearc/oil.nvim',
-  dependencies = {
-    'nvim-tree/nvim-web-devicons',
-  },
-  lazy = false,
-  keys = {
-    { '-', '<cmd>Oil<cr>', desc = 'Open oil buffer' },
-  },
-  opts = {
+vim.pack.add({ 'https://github.com/nvim-tree/nvim-web-devicons' })
+vim.pack.add({ 'https://github.com/stevearc/oil.nvim' })
+
+local oil = require('oil')
+
+oil.setup({
     lsp_file_methods = {
       enabled = true,
     },
@@ -23,7 +19,7 @@ return {
           end
         end,
       },
-      ['q'] = { 'actions.close', mode = 'n' },
+      ['q'] = false,
       ['gl'] = 'actions.refresh',
       ['<C-v>'] = { 'actions.select', opts = { vertical = true } },
       ['<C-s>'] = false,
@@ -39,5 +35,6 @@ return {
       max_height = 0.6,
       max_width = 0.4,
     },
-  },
-}
+  })
+
+vim.keymap.set('n', '-', '<cmd>Oil<cr>', { desc = 'Open Oil buffer' })

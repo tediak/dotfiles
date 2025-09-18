@@ -1,11 +1,10 @@
-return {
-  'ellisonleao/gruvbox.nvim',
-  lazy = false,
-  priority = 1000,
-  opts = {
-    italic = {
-      strings = false
-    },
-    transparent_mode = true,
+vim.pack.add({ 'https://github.com/ellisonleao/gruvbox.nvim' })
+
+local gruvbox = require('gruvbox')
+
+gruvbox.setup({
+  italic = {
+    strings = false
   },
-}
+  transparent_mode = true,
+})

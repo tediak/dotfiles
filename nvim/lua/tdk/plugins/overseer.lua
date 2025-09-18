@@ -1,19 +1,9 @@
-return {
-  'stevearc/overseer.nvim',
-  keys = {
-    { '<leader>os', '<cmd>OverseerToggle<cr>', desc = 'Toggle tasks view' },
-    { '<leader>r', '<cmd>OverseerRun<cr>', desc = 'Run a task' },
-    { '<leader>R', '<cmd>OverseerLoadBundle<cr>', desc = 'Load a task from bundle' },
-  },
-  opts = {
-    task_list = {
-      direction = 'right',
-      bindings = {
-        ['<C-l>'] = false,
-        ['<C-h>'] = false,
-        ['['] = false,
-        [']'] = false,
-      },
-    },
-  },
-}
+vim.pack.add({ 'https://github.com/stevearc/overseer.nvim' })
+
+local overseer = require('overseer')
+
+overseer.setup()
+
+vim.keymap.set('n', '<leader>os', '<cmd>OverseerToggle<cr>', { desc = 'Toggle tasks view' })
+vim.keymap.set('n', 'R', '<cmd>OverseerRun<cr>', { desc = 'Run task' })
+vim.keymap.set('n', '<leader>R', '<cmd>OverseerLoadBundle<cr>', { desc = 'Load tasks bundle' })

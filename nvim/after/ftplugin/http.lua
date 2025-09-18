@@ -1,14 +1,6 @@
 vim.api.nvim_buf_set_keymap(
   0,
   "n",
-  "<c-cr>",
-  "<cmd>lua require('kulala').run()<cr>",
-  { noremap = true, silent = true, desc = "Execute the request" }
-)
-
-vim.api.nvim_buf_set_keymap(
-  0,
-  "n",
   "[r",
   "<cmd>lua require('kulala').jump_prev()<cr>zz",
   { noremap = true, silent = true, desc = "Jump to the previous request" }
@@ -25,14 +17,6 @@ vim.api.nvim_buf_set_keymap(
 vim.api.nvim_buf_set_keymap(
   0,
   "n",
-  "<leader>i",
-  "<cmd>lua require('kulala').inspect()<cr>",
-  { noremap = true, silent = true, desc = "Inspect the current request" }
-)
-
-vim.api.nvim_buf_set_keymap(
-  0,
-  "n",
   "<leader>co",
   "<cmd>lua require('kulala').copy()<cr>",
   { noremap = true, silent = true, desc = "Copy the current request as a curl command" }
@@ -44,14 +28,6 @@ vim.api.nvim_buf_set_keymap(
   "<leader>ci",
   "<cmd>lua require('kulala').from_curl()<cr>",
   { noremap = true, silent = true, desc = "Paste curl from clipboard as http request" }
-)
-
-vim.api.nvim_buf_set_keymap(
-  0,
-  "n",
-  "<leader>cs",
-  "<cmd>lua require('kulala').show_stats()<cr>",
-  { noremap = true, silent = true, desc = "Show stats" }
 )
 
 vim.api.nvim_buf_set_keymap(
