@@ -4,37 +4,37 @@ vim.pack.add({ 'https://github.com/stevearc/oil.nvim' })
 local oil = require('oil')
 
 oil.setup({
-    lsp_file_methods = {
-      enabled = true,
+  lsp_file_methods = {
+    enabled = true,
+  },
+  keymaps = {
+    ['gd'] = {
+      desc = 'Toggle file detail view',
+      callback = function()
+        detail = not detail
+        if detail then
+          require('oil').set_columns({ 'icon', 'permissions', 'size', 'mtime' })
+        else
+          require('oil').set_columns({ 'icon' })
+        end
+      end,
     },
-    keymaps = {
-      ['gd'] = {
-        desc = 'Toggle file detail view',
-        callback = function()
-          detail = not detail
-          if detail then
-            require('oil').set_columns({ 'icon', 'permissions', 'size', 'mtime' })
-          else
-            require('oil').set_columns({ 'icon' })
-          end
-        end,
-      },
-      ['q'] = false,
-      ['gl'] = 'actions.refresh',
-      ['<C-v>'] = { 'actions.select', opts = { vertical = true } },
-      ['<C-s>'] = false,
-      ['<C-l>'] = false,
-      ['<C-h>'] = false,
-      ['<C-t>'] = false,
-      ['<C-p>'] = false,
-    },
-    view_options = {
-      show_hidden = true,
-    },
-    float = {
-      max_height = 0.6,
-      max_width = 0.4,
-    },
-  })
+    ['q'] = false,
+    ['gl'] = 'actions.refresh',
+    ['<C-v>'] = { 'actions.select', opts = { vertical = true } },
+    ['<C-s>'] = false,
+    ['<C-l>'] = false,
+    ['<C-h>'] = false,
+    ['<C-t>'] = false,
+    ['<C-p>'] = false,
+  },
+  view_options = {
+    show_hidden = true,
+  },
+  float = {
+    max_height = 0.6,
+    max_width = 0.4,
+  },
+})
 
 vim.keymap.set('n', '-', '<cmd>Oil<cr>', { desc = 'Open Oil buffer' })

@@ -7,4 +7,3 @@ fidget.setup({
     override_vim_notify = true,
   },
 })
-

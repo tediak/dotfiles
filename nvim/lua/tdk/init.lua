@@ -1,28 +1,28 @@
 -- Core Neovim Settings
+require('tdk.core.autocommands.pack')
+require('tdk.core.lsp')
 require('tdk.core.options')
 require('tdk.core.remap')
-require('tdk.core.lsp')
-require('tdk.core.autocommands.pack')
 
 -- Colorschemes
-require('tdk.colorschemes.poimandres')
 require('tdk.colorschemes.gruvbox')
+require('tdk.colorschemes.poimandres')
 require('tdk.core.colorscheme')
 
 -- Notifications
 require('tdk.plugins.fidget')
 
 -- Files
-require('tdk.plugins.oil')
 require('tdk.plugins.neotree')
+require('tdk.plugins.oil')
 
 
 -- Language Support
-require('tdk.plugins.treesitter')
 require('tdk.plugins.blink_cmp')
 require('tdk.plugins.conform')
 require('tdk.plugins.dap')
 require('tdk.plugins.neotest')
+require('tdk.plugins.treesitter')
 
 -- UI
 -- require('tdk.plugins.alpha')
@@ -39,7 +39,6 @@ require('tdk.plugins.tmux_navigator')
 require('tdk.plugins.todo_comments')
 require('tdk.plugins.treesj')
 require('tdk.plugins.unimpaired')
-
 
 -- Task runner
 require('tdk.plugins.overseer')
@@ -62,5 +61,5 @@ require('tdk.plugins.fugitive')
 require('tdk.plugins.mini_diff')
 
 -- Org Mode
-require('tdk.plugins.orgmode')
-require('tdk.plugins.org_roam')
+-- require('tdk.plugins.orgmode')
+-- require('tdk.plugins.org_roam')

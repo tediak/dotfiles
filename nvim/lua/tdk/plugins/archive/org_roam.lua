@@ -1,6 +1,6 @@
 vim.pack.add({
   'https://github.com/nvim-orgmode/orgmode',
-  'https://github.com/chipsenkbeil/org-roam.nvim'
+  'https://github.com/chipsenkbeil/org-roam.nvim',
 })
 
 local org_roam = require('org-roam')

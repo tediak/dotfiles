@@ -36,11 +36,11 @@ conform.setup({
 vim.keymap.set(
   'n',
   '<leader>fm',
-  function ()
+  function()
     conform.format({
       lsp_fallback = true,
       async = true,
-      timeout_ms = 3000
+      timeout_ms = 3000,
     })
   end,
   { desc = 'Format a file with conform' }

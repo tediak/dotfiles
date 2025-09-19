@@ -14,7 +14,7 @@ blink.setup({
       'DressingInput',
       'org-roam-select',
       'OverseerForm',
-      'OverseerList'
+      'OverseerList',
     }
 
     local disabled_extensions = {
@@ -32,7 +32,7 @@ blink.setup({
   keymap = {
     preset = 'none',
     ['<c-space>'] = { 'show', 'show_documentation', 'hide_documentation' },
-    ['<c-e>'] = { 'hide' },
+    ['<c-e>'] = { 'hide', 'show' },
     ['<c-j>'] = { 'select_next', 'fallback' },
     ['<c-k>'] = { 'select_prev', 'fallback' },
     ['<c-l>'] = { 'scroll_documentation_down', 'fallback' },
@@ -74,7 +74,7 @@ blink.setup({
       auto_show_delay_ms = 100,
     },
     menu = {
-      auto_show = true,
+      auto_show = false,
       draw = {
         columns = {
           { 'label', 'label_description', gap = 1 },
@@ -87,7 +87,7 @@ blink.setup({
     enabled = false,
   },
   sources = {
-    default = {'dadbod', 'snippets', 'lsp', 'path', 'buffer' },
+    default = { 'dadbod', 'snippets', 'lsp', 'path', 'buffer' },
     per_filetype = {
       org = { 'orgmode', 'snippets', 'path' },
     },
@@ -113,4 +113,3 @@ blink.setup({
     },
   },
 })
-

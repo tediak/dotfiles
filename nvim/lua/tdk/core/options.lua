@@ -1,5 +1,10 @@
 local opt = vim.opt
 
+-- Enable spell checker
+opt.spell = true
+opt.spellfile = vim.fn.stdpath('config') .. '/spell/en.utf-8.add'
+opt.spelllang = "en_us"
+
 -- Enable exrc
 opt.exrc = true
 

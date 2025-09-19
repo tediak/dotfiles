@@ -14,7 +14,7 @@ configs.setup({
     'javascript',
     'typescript',
     'latex',
-    'astro'
+    'astro',
   },
   auto_install = false,
   modules = {},
