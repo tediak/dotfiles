@@ -6,8 +6,13 @@ local overrides = {
     hl('Normal', { bg = 'NONE' })
     hl('WinSeparator', { fg = '#121212' })
 
-    hl('PmenuSbar', { bg = 'NONE' })
-    hl('PmenuThumb', { bg = 'NONE' })
+    hl('Pmenu', { bg = '#000000' })
+    hl('PmenuSbar', { bg = '#000000' })
+    hl('PmenuThumb', { bg = '#000000' })
+    hl('PmenuExtra', { bg = '#000000' })
+    hl('PmenuKind', { bg = '#000000' })
+
+    hl('StatusLineNC', { bg = '#000000', fg = 'NvimLightGrey3' })
   end,
 
   poimandres = function()
@@ -44,7 +49,7 @@ local overrides = {
     -- fzf-lua picker transparency
     hl('PmenuSbar', { bg = 'NONE' })
     hl('PmenuThumb', { bg = 'NONE' })
-  end
+  end,
 }
 
 local function apply(name)
@@ -58,4 +63,4 @@ vim.api.nvim_create_autocmd('ColorScheme', {
   callback = function() apply(vim.g.colors_name) end,
 })
 
-vim.cmd.colorscheme('poimandres')
+vim.cmd.colorscheme('default')

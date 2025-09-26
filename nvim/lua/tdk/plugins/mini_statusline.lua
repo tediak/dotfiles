@@ -83,13 +83,22 @@ local function get_mode_short()
   return mode_info.short, mode_info.hl
 end
 
+local function get_git_branch()
+  local branch = vim.fn.system('git -C ' .. vim.fn.getcwd() .. ' rev-parse --abbrev-ref HEAD 2>/dev/null')
+  branch = vim.trim(branch)
+  if branch == '' then
+    return ''
+  end
+  return branch
+end
+
 statusline.setup({
   content = {
     active = function()
       local mode, mode_hl = get_mode_short()
-      local filename = '%f %m%r'
-      local diff = statusline.section_diff({ trunc_width = 75, icon = '' })
-      local git = statusline.section_git({ icon = '' })
+      local filename = '%f%m%r'
+      local diff = vim.b.minidiff_summary_string
+      local branch = get_git_branch()
       local diagnostics = statusline.section_diagnostics({
         trunc_width = 75,
         signs = {
@@ -98,20 +107,20 @@ statusline.setup({
           HINT = ' ',
           INFO = ' ',
         },
-        icon = '',
+        icon = '|',
       })
-      -- local org_status = '%{v:lua.orgmode.statusline()}'
+
       local overseer_status_line = overseer_status({ colored = false })
-      local location = '%l:%v'
+      local location = '%P %8([%l:%v]%)'
 
       return statusline.combine_groups({
         { hl = mode_hl, strings = { mode } },
         '%<', -- Mark general truncate point
         { hl = 'MiniStatuslineDevinfo', strings = { filename } },
-        { hl = 'MiniStatuslineFilename', strings = { diff, diagnostics } },
+        { hl = 'MiniStatuslineFilename', strings = { branch, diff, diagnostics } },
         '%=', -- End left alignment
-        { hl = 'MiniStatuslineFileinfo', strings = { overseer_status_line, git } },
-        { hl = mode_hl, strings = { location } },
+        { hl = 'MiniStatuslineFileinfo', strings = { overseer_status_line } },
+        { hl = 'MiniStatuslineFileinfo', strings = { location } },
       })
     end,
     inactive = nil,

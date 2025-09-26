@@ -29,3 +29,13 @@ alias tlauncher="java -Xms24g -Xmx24g -jar ~/my/tlauncher/TLauncher.jar"
 
 # alias excalidraw_export="excalidraw_export --embed-fonts --rename-fonts"
 alias notes="wordgrinder /Users/tediak/.notes/main.wg"
+
+# m4b-tool
+alias m4b-tool='docker run -it --rm -u $(id -u):$(id -g) -v "$(pwd)":/mnt sandreas/m4b-tool:latest'
+
+# most
+alias most="most -w"
+
+# my personal utils
+alias cheatsheets="nvim ~/.navi/cheats/tdk"
+alias finance="nvim ~/my/finance"

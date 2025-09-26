@@ -1,9 +1,10 @@
 local opt = vim.opt
 
--- Enable spell checker
-opt.spell = true
+-- Spell checker
+opt.spell = false
 opt.spellfile = vim.fn.stdpath('config') .. '/spell/en.utf-8.add'
 opt.spelllang = "en_us"
+opt.spelloptions = "camel"
 
 -- Enable exrc
 opt.exrc = true
@@ -115,7 +116,7 @@ opt.backup = false
 opt.writebackup = false
 opt.swapfile = false
 opt.undofile = true
-opt.undodir = vim.fn.expand('~/.vim/undodir')
+opt.undodir = vim.fn.expand('~/.vim/undodir') -- same for vim
 opt.autoread = true
 opt.updatetime = 300
 opt.timeoutlen = 500

@@ -1,11 +1,23 @@
-vim.pack.add({ 'https://github.com/nvim-tree/nvim-web-devicons' })
-vim.pack.add({ 'https://github.com/stevearc/oil.nvim' })
+vim.pack.add({
+  'https://github.com/JezerM/oil-lsp-diagnostics.nvim',
+  'https://github.com/stevearc/oil.nvim',
+})
 
 local oil = require('oil')
+local oil_lsp = require('oil-lsp-diagnostics')
+
+local detail
 
 oil.setup({
+  default_file_explorer = true,
   lsp_file_methods = {
     enabled = true,
+  },
+  delete_to_trash = true,
+  win_options = {
+    number = false,
+    relativenumber = false,
+    signcolumn = 'no', -- yes:2 for oil-git-status plugin
   },
   keymaps = {
     ['gd'] = {
@@ -36,5 +48,7 @@ oil.setup({
     max_width = 0.4,
   },
 })
+
+oil_lsp.setup()
 
 vim.keymap.set('n', '-', '<cmd>Oil<cr>', { desc = 'Open Oil buffer' })

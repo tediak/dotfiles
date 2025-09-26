@@ -21,12 +21,42 @@ git_segment() {
   local seg="%F{4}-[%f%F{magenta}${branch}%f"
   ((unstaged_added))   && seg+=" %F{red}+${unstaged_added}%f"
   ((unstaged_deleted)) && seg+=" %F{red}-${unstaged_deleted}%f"
-  ((staged_added))     && seg+=" %B%F{green}+${staged_added}%f%b"
-  ((staged_deleted))   && seg+=" %B%F{green}-${staged_deleted}%f%b"
+  ((staged_added))     && seg+=" %F{green}+${staged_added}%f"
+  ((staged_deleted))   && seg+=" %F{green}-${staged_deleted}%f"
   seg+="%F{4}]%f"
   print -r -- "$seg"
 }
 
+aws_segment() {
+  local seg=""
+  if [[ -n $AWS_PROFILE ]]; then
+    seg+=" %F{8}aws:$AWS_PROFILE"
+    [[ -n $AWS_REGION ]] && seg+="($AWS_REGION)"
+    seg+="%f"
+  fi
+  print -r -- "$seg"
+}
+
+PROMPT_NODE_VERSION=$(node -v 2>/dev/null)
+node_segment() {
+  local seg=""
+  if [[ -n $NVM_DIR ]]; then
+    local node_version
+    node_version=$(node -v 2>/dev/null)
+    if [[ -n $PROMPT_NODE_VERSION ]]; then
+      seg+=" %F{8}node:$node_version%f"
+    fi
+  fi
+  print -r -- "$seg"
+}
+
+PROMPT_GO_VERSION=$(go version 2>/dev/null | awk '{print $3}' | sed 's/^go/v/')
+go_segment() {
+  if [[ -n $PROMPT_GO_VERSION ]]; then
+    print -r -- " %F{8}go:${PROMPT_GO_VERSION}%f"
+  fi
+}
+
 setopt PROMPT_SUBST
-PROMPT=$'%F{4}[%f%F{blue}%4~%f%F{4}]%f$(git_segment) %B%F{yellow}λ%f%b '
-RPROMPT=$''
+PROMPT=$'%F{4}[%f%F{blue}%4~%f%F{4}]%f$(git_segment) %B%F{%(?.blue.red)}λ%f%b '
+RPROMPT=$'$(aws_segment)$(node_segment)$(go_segment)'

@@ -1,5 +1,7 @@
 vim.pack.add({
   'https://github.com/kristijanhusak/vim-dadbod-completion',
+  'https://github.com/kirasok/cmp-hledger',
+  { src = 'https://github.com/saghen/blink.compat', version = 'v2.5.0' },
   { src = 'https://github.com/saghen/blink.cmp', version = 'v1.7.0' },
 })
 
@@ -31,8 +33,8 @@ blink.setup({
   end,
   keymap = {
     preset = 'none',
-    ['<c-space>'] = { 'show', 'show_documentation', 'hide_documentation' },
-    ['<c-e>'] = { 'hide', 'show' },
+    ['<c-e>'] = { 'show_documentation', 'hide_documentation' },
+    ['<c-space>'] = { 'hide', 'show' },
     ['<c-j>'] = { 'select_next', 'fallback' },
     ['<c-k>'] = { 'select_prev', 'fallback' },
     ['<c-l>'] = { 'scroll_documentation_down', 'fallback' },
@@ -70,11 +72,11 @@ blink.setup({
       selection = { preselect = true, auto_insert = false },
     },
     documentation = {
-      auto_show = true,
+      auto_show = false,
       auto_show_delay_ms = 100,
     },
     menu = {
-      auto_show = false,
+      auto_show = true,
       draw = {
         columns = {
           { 'label', 'label_description', gap = 1 },
@@ -90,6 +92,7 @@ blink.setup({
     default = { 'dadbod', 'snippets', 'lsp', 'path', 'buffer' },
     per_filetype = {
       org = { 'orgmode', 'snippets', 'path' },
+      ledger = { 'path', 'hledger' },
     },
     providers = {
       dadbod = {
@@ -101,6 +104,11 @@ blink.setup({
         name = 'Orgmode',
         module = 'orgmode.org.autocompletion.blink',
         fallbacks = { 'buffer' },
+      },
+      hledger = {
+        name = 'hledger',
+        module = 'blink.compat.source',
+        score_offset = 11,
       },
       lsp = { score_offset = 11 },
       snippets = { score_offset = 10 },

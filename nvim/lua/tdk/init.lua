@@ -9,6 +9,11 @@ require('tdk.colorschemes.gruvbox')
 require('tdk.colorschemes.poimandres')
 require('tdk.core.colorscheme')
 
+-- UI
+-- require('tdk.plugins.alpha')
+require('tdk.plugins.mini_statusline')
+require('tdk.plugins.icons')
+
 -- Notifications
 require('tdk.plugins.fidget')
 
@@ -16,17 +21,12 @@ require('tdk.plugins.fidget')
 require('tdk.plugins.neotree')
 require('tdk.plugins.oil')
 
-
 -- Language Support
 require('tdk.plugins.blink_cmp')
 require('tdk.plugins.conform')
 require('tdk.plugins.dap')
 require('tdk.plugins.neotest')
 require('tdk.plugins.treesitter')
-
--- UI
--- require('tdk.plugins.alpha')
-require('tdk.plugins.mini_statusline')
 
 -- QoL
 require('tdk.plugins.autopairs')

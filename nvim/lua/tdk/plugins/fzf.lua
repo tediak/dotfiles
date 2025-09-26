@@ -1,13 +1,10 @@
-vim.pack.add({
-  'https://github.com/nvim-tree/nvim-web-devicons',
-  'https://github.com/ibhagwan/fzf-lua',
-})
+vim.pack.add({ 'https://github.com/ibhagwan/fzf-lua' })
 
 local fzf = require('fzf-lua')
 
 fzf.setup({
-  'borderless',
   defaults = {
+    file_icons = false,
     git_icons = false,
     winopts = {
       height = 0.4, -- 40% of the screen height
@@ -53,7 +50,7 @@ vim.keymap.set(
 
 vim.keymap.set(
   'n',
-  '<leader>fS',
+  '<leader>ff',
   function()
     fzf.live_grep_native({
       previewer = true,

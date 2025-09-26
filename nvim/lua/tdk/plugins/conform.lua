@@ -12,6 +12,9 @@ conform.setup({
     http = { 'kulala' },
     rest = { 'kulala' },
     json = { 'jq' },
+    ledger = { 'hledger' },
+    journal = { 'hledger' },
+    j = { 'hledger' },
   },
   formatters = {
     sqlfluff = {
@@ -28,6 +31,11 @@ conform.setup({
     kulala = {
       command = 'kulala-fmt',
       args = { 'format', '$FILENAME' },
+      stdin = false,
+    },
+    hledger = {
+      command = 'hledger-fmt',
+      args = { '--fix', '--no-diff', '--exit-zero-on-changes' },
       stdin = false,
     },
   },

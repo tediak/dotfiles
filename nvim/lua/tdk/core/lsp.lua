@@ -20,6 +20,9 @@ vim.lsp.enable({
 
   -- CSS
   'cssls',
+
+  -- Just
+  'just'
 })
 
 vim.diagnostic.config({
@@ -34,8 +37,10 @@ vim.diagnostic.config({
   underline = true,
   update_in_insert = false,
   severity_sort = true,
-  virtual_text = true,
+  virtual_text = false,
 })
+
+vim.keymap.set('n', 'D', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
 
 -- TODO: enable later, after I figure out what how to enable documentation in native autocompletion
 -- vim.opt.completeopt:append('noselect')
