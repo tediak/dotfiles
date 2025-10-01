@@ -99,7 +99,7 @@ statusline.setup({
       local mode, mode_hl = get_mode_short()
       local filename = '%f%m%r'
       local diff = vim.b.minidiff_summary_string
-      local branch = '%{FugitiveStatusline()}' -- get_git_branch()
+      local branch = get_git_branch() -- '%{FugitiveStatusline()}'
       local diagnostics = statusline.section_diagnostics({
         trunc_width = 75,
         signs = {
@@ -112,7 +112,7 @@ statusline.setup({
       })
 
       local overseer_status_line = overseer_status({ colored = false })
-      local location = '%P %8([%l:%v]%)'
+      local location = '%4(%l:%v%)'
 
       return statusline.combine_groups({
         { hl = mode_hl, strings = { mode } },
