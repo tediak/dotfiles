@@ -1,4 +1,7 @@
-vim.pack.add({ 'https://github.com/echasnovski/mini.statusline' })
+vim.pack.add({
+  'https://github.com/tpope/vim-fugitive',
+  'https://github.com/echasnovski/mini.statusline',
+})
 
 local statusline = require('mini.statusline')
 
@@ -86,9 +89,7 @@ end
 local function get_git_branch()
   local branch = vim.fn.system('git -C ' .. vim.fn.getcwd() .. ' rev-parse --abbrev-ref HEAD 2>/dev/null')
   branch = vim.trim(branch)
-  if branch == '' then
-    return ''
-  end
+  if branch == '' then return '' end
   return branch
 end
 
@@ -98,7 +99,7 @@ statusline.setup({
       local mode, mode_hl = get_mode_short()
       local filename = '%f%m%r'
       local diff = vim.b.minidiff_summary_string
-      local branch = get_git_branch()
+      local branch = '%{FugitiveStatusline()}' -- get_git_branch()
       local diagnostics = statusline.section_diagnostics({
         trunc_width = 75,
         signs = {

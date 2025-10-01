@@ -33,7 +33,7 @@ blink.setup({
   end,
   keymap = {
     preset = 'none',
-    ['<c-e>'] = { 'show_documentation', 'hide_documentation' },
+    ['<c-e>'] = nil,
     ['<c-space>'] = { 'hide', 'show' },
     ['<c-j>'] = { 'select_next', 'fallback' },
     ['<c-k>'] = { 'select_prev', 'fallback' },
@@ -72,8 +72,8 @@ blink.setup({
       selection = { preselect = true, auto_insert = false },
     },
     documentation = {
-      auto_show = false,
-      auto_show_delay_ms = 100,
+      auto_show = true,
+      auto_show_delay_ms = 150,
     },
     menu = {
       auto_show = true,
@@ -112,12 +112,6 @@ blink.setup({
       },
       lsp = { score_offset = 11 },
       snippets = { score_offset = 10 },
-      -- copilot = {
-      --   name = 'copilot',
-      --   module = 'blink-copilot',
-      --   score_offset = 10,
-      --   async = true,
-      -- },
     },
   },
 })

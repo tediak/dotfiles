@@ -1,0 +1,54 @@
+# Apps
+ctrl + alt - t : open -a "Things3"
+ctrl + alt - i : open -a "Mail"
+ctrl + alt - s : open -a "Safari"
+ctrl + alt - c : open -a "Zen"
+ctrl + alt - u : open -a "Music"
+ctrl + alt - l : open -a "Slack"
+ctrl + alt - a : open -a "TablePlus"
+ctrl + alt - o : open -a "Obsidian"
+ctrl + alt - r : open -a "Reeder"
+ctrl + alt - m : open -a "emacs"
+ctrl + alt + shift - m : ~/.config/emacs/bin/org-capture
+
+# Toggle terminal
+# ctrl - 0x32 : osascript ~/.config/toggle-wezterm.osascript
+# ctrl - 0x0A : osascript ~/.config/toggle-wezterm.osascript
+
+# Yabai shortcuts
+## Focus on windows
+# alt - j : yabai -m window --focus south
+# alt - k : yabai -m window --focus north
+# alt - h : yabai -m window --focus west
+# alt - l : yabai -m window --focus east
+
+## Focus on desktops
+# fn - 1 : yabai -m space --focus 1
+# fn - 2 : yabai -m space --focus 2
+# fn - 3 : yabai -m space --focus 3
+# fn - 4 : yabai -m space --focus 4
+# fn - 5 : yabai -m space --focus 5
+# fn - 6 : yabai -m space --focus 6
+# fn - 7 : yabai -m space --focus 7
+
+## Rotate layout clockwise
+# shift + alt - r : yabai -m space --rotate 270
+
+## Flip along y-axis
+# shift + alt - y : yabai -m space --mirror y-axis
+
+## Flip along x-axis
+# shift + alt - x : yabai -m space --mirror x-axis
+
+## Toggle window float
+# shift + alt - t : yabai -m window --toggle float --grid 4:4:1:1:2:2
+
+## Modify window size
+# shift + alt - m : yabai -m window --toggle zoom-fullscreen
+
+# Balance out tree of windows
+# shift + alt - e : yabai -m space --balance
+
+## Start / Stop yabai
+# shift + alt - q : yabai --stop-service
+# shift + alt - s : yabai --start-service

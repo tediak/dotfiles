@@ -1,10 +1,8 @@
 vim.pack.add({
-  'https://github.com/JezerM/oil-lsp-diagnostics.nvim',
   'https://github.com/stevearc/oil.nvim',
 })
 
 local oil = require('oil')
-local oil_lsp = require('oil-lsp-diagnostics')
 
 local detail
 
@@ -48,7 +46,5 @@ oil.setup({
     max_width = 0.4,
   },
 })
-
-oil_lsp.setup()
 
 vim.keymap.set('n', '-', '<cmd>Oil<cr>', { desc = 'Open Oil buffer' })

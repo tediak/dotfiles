@@ -39,6 +39,7 @@ require('tdk.plugins.tmux_navigator')
 require('tdk.plugins.todo_comments')
 require('tdk.plugins.treesj')
 require('tdk.plugins.unimpaired')
+require('tdk.plugins.harpoon')
 
 -- Task runner
 require('tdk.plugins.overseer')

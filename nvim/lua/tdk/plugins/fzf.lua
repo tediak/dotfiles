@@ -1,6 +1,10 @@
-vim.pack.add({ 'https://github.com/ibhagwan/fzf-lua' })
+vim.pack.add({
+  'https://github.com/ThePrimeagen/harpoon',
+  'https://github.com/ibhagwan/fzf-lua',
+})
 
 local fzf = require('fzf-lua')
+local harpoon = require('harpoon')
 
 fzf.setup({
   defaults = {
@@ -14,6 +18,12 @@ fzf.setup({
       border = 'none', -- no border for true ivy look
     },
   },
+  keymap = {
+    fzf = {
+      ['ctrl-d'] = 'half-page-down',
+      ['ctrl-u'] = 'half-page-up',
+    },
+  },
 })
 
 -- Use fzf-lua picker as default one instead of vim.ui.select
@@ -21,9 +31,17 @@ fzf.register_ui_select()
 
 vim.keymap.set(
   'n',
+  '<c-space>',
+  '<cmd>FzfLua resume<cr>',
+  { desc = 'Resume last picker' }
+)
+
+vim.keymap.set(
+  'n',
   '<leader><leader>',
   function()
-    fzf.files({
+    fzf.global({
+      prompt = 'go> ',
       cwd_only = true,
       previewer = false,
       cwd_prompt = false,
@@ -34,7 +52,12 @@ vim.keymap.set(
   { desc = 'Go to file' }
 )
 
-vim.keymap.set('n', '<c-b>', function() fzf.buffers({ previewer = true }) end, { desc = 'Go to buffer' })
+vim.keymap.set(
+  'n',
+  '<c-b>',
+  function() fzf.buffers({ prompt = 'buffers> ', previewer = true }) end,
+  { desc = 'Go to buffer' }
+)
 
 vim.keymap.set(
   'n',
@@ -136,3 +159,31 @@ vim.keymap.set(
 )
 
 vim.keymap.set('n', '<leader>D', fzf.lsp_document_diagnostics, { desc = 'Show buffer diagnostics' })
+
+vim.keymap.set('n', '<leader>h', function()
+  local harpoon_files = harpoon:list()
+
+  local file_paths = {}
+  for index, item in ipairs(harpoon_files.items) do
+    -- Add the index to the file path
+    table.insert(file_paths, string.format('[%d] %s', index, item.value))
+  end
+
+  fzf.fzf_exec(file_paths, {
+    prompt = 'harpoon> ',
+    previewer = false,
+    winopts = {
+      width = 0.3,
+      height = 0.15,
+      row = 0.5,
+      col = 0.5,
+    },
+    actions = {
+      ['default'] = function(selected)
+        -- Extract the file path from the selected item
+        local file_path = selected[1]:match('%] (.+)')
+        vim.cmd('edit ' .. file_path)
+      end,
+    },
+  })
+end, { desc = 'Open Harpoon picker' })

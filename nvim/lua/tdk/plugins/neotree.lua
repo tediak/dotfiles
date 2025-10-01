@@ -7,10 +7,3 @@ vim.pack.add({
 local neotree = require('neo-tree')
 
 neotree.setup()
-
-vim.keymap.set(
-  'n',
-  '<leader>ee',
-  function() require('neo-tree.command').execute({ toggle = true }) end,
-  { desc = 'Toggle Neotree' }
-)
