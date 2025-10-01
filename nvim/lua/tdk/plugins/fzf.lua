@@ -180,7 +180,6 @@ vim.keymap.set('n', '<leader>h', function()
     },
     actions = {
       ['default'] = function(selected)
-        -- Extract the file path from the selected item
         local file_path = selected[1]:match('%] (.+)')
         vim.cmd('edit ' .. file_path)
       end,
