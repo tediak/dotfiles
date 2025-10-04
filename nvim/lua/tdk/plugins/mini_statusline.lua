@@ -86,20 +86,13 @@ local function get_mode_short()
   return mode_info.short, mode_info.hl
 end
 
-local function get_git_branch()
-  local branch = vim.fn.system('git -C ' .. vim.fn.getcwd() .. ' rev-parse --abbrev-ref HEAD 2>/dev/null')
-  branch = vim.trim(branch)
-  if branch == '' then return '' end
-  return branch
-end
-
 statusline.setup({
   content = {
     active = function()
       local mode, mode_hl = get_mode_short()
       local filename = '%f%m%r'
       local diff = vim.b.minidiff_summary_string
-      local branch = get_git_branch() -- '%{FugitiveStatusline()}'
+      local branch = '%{FugitiveStatusline()}'
       local diagnostics = statusline.section_diagnostics({
         trunc_width = 75,
         signs = {
@@ -120,7 +113,7 @@ statusline.setup({
         { hl = 'MiniStatuslineDevinfo', strings = { filename } },
         { hl = 'MiniStatuslineFilename', strings = { branch, diff, diagnostics } },
         '%=', -- End left alignment
-        { hl = 'MiniStatuslineFileinfo', strings = { overseer_status_line } },
+        { hl = 'MiniStatuslineFileinfo', strings = {} }, -- overseer status line
         { hl = 'MiniStatuslineFileinfo', strings = { location } },
       })
     end,

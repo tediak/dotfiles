@@ -40,8 +40,6 @@ vim.diagnostic.config({
   virtual_text = false,
 })
 
-vim.keymap.set('n', 'D', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
-
 -- TODO: enable later, after I figure out what how to enable documentation in native autocompletion
 -- vim.opt.completeopt:append('noselect')
 -- vim.api.nvim_create_autocmd('LspAttach', {

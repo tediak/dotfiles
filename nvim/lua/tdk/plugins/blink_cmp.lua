@@ -33,7 +33,7 @@ blink.setup({
   end,
   keymap = {
     preset = 'none',
-    ['<c-e>'] = nil,
+    ['<c-e>'] = false,
     ['<c-space>'] = { 'hide', 'show' },
     ['<c-j>'] = { 'select_next', 'fallback' },
     ['<c-k>'] = { 'select_prev', 'fallback' },

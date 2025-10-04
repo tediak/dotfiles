@@ -6,5 +6,5 @@ gruvbox.setup({
   italic = {
     strings = false
   },
-  transparent_mode = true,
+  -- transparent_mode = true,
 })

@@ -1,13 +1,18 @@
 -- Core Neovim Settings
-require('tdk.core.autocommands.pack')
 require('tdk.core.lsp')
 require('tdk.core.options')
 require('tdk.core.remap')
 
+-- Autocommands
+require('tdk.core.autocommands.pack')
+require('tdk.core.autocommands.colorscheme')
+
 -- Colorschemes
 require('tdk.colorschemes.gruvbox')
 require('tdk.colorschemes.poimandres')
-require('tdk.core.colorscheme')
+require('tdk.colorschemes.github')
+
+vim.cmd.colorscheme('default')
 
 -- UI
 -- require('tdk.plugins.alpha')
@@ -30,7 +35,6 @@ require('tdk.plugins.treesitter')
 
 -- QoL
 require('tdk.plugins.autopairs')
-require('tdk.plugins.autotag')
 require('tdk.plugins.flash')
 -- require('tdk.plugins.hardtime')
 require('tdk.plugins.repeat')
