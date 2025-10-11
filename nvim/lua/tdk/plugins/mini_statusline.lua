@@ -92,7 +92,11 @@ statusline.setup({
       local mode, mode_hl = get_mode_short()
       local filename = '%f%m%r'
       local diff = vim.b.minidiff_summary_string
-      local branch = '%{FugitiveStatusline()}'
+      local branch_name = ''
+      if vim.fn.exists('*FugitiveStatusline') == 1 then
+        local branch = vim.fn.FugitiveStatusline()
+        branch_name = branch:match('%[Git%(([^)]+)%)%]') or ''
+      end
       local diagnostics = statusline.section_diagnostics({
         trunc_width = 75,
         signs = {
@@ -111,9 +115,9 @@ statusline.setup({
         { hl = mode_hl, strings = { mode } },
         '%<', -- Mark general truncate point
         { hl = 'MiniStatuslineDevinfo', strings = { filename } },
-        { hl = 'MiniStatuslineFilename', strings = { branch, diff, diagnostics } },
+        { hl = 'MiniStatuslineFilename', strings = { branch_name, diff, diagnostics } },
         '%=', -- End left alignment
-        { hl = 'MiniStatuslineFileinfo', strings = {} }, -- overseer status line
+        { hl = 'MiniStatuslineFileinfo', strings = { overseer_status_line } }, -- overseer status line
         { hl = 'MiniStatuslineFileinfo', strings = { location } },
       })
     end,

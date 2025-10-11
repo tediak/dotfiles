@@ -1,6 +1,5 @@
 vim.pack.add({
   'https://github.com/nvim-neotest/nvim-nio',
-  -- 'https://github.com/rcarriga/nvim-dap-ui',
   'https://github.com/leoluz/nvim-dap-go',
   'https://github.com/microsoft/vscode-js-debug',
   'https://github.com/mfussenegger/nvim-dap',
@@ -9,7 +8,6 @@ vim.pack.add({
 
 local dap = require('dap')
 local dap_go = require('dap-go')
--- local ui = require('dapui')
 local ui = require('dap-view')
 
 ui.setup()

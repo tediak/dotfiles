@@ -10,7 +10,7 @@ map('n', '<up>', '5<c-y>', { desc = 'Scroll up' })
 
 -- Utilities
 map('n', '<leader>x', '<cmd>close<cr>', { desc = 'Close current tab/pane' })
-map('n', '<leader>nh', ':nohl<CR>', { desc = 'Clear search highlights' })
+map('n', '<leader>nh', '<cmd>nohl<CR>', { desc = 'Clear search highlights' })
 
 -- Change command line window key
 map('n', 'Q:', 'q:', { desc = 'Open command line window' })
@@ -45,6 +45,14 @@ vim.api.nvim_create_user_command('PackUpdate', function() vim.pack.update() end,
 
 -- Terminal
 map('t', '<esc>', '<c-\\><c-n>', { desc = 'Exit terminal mode' })
+
+-- Node REPL
+vim.api.nvim_create_user_command('Node', function()
+  local height = math.floor(vim.o.lines * 0.3)
+  vim.cmd(height .. 'split')
+  vim.cmd('terminal node')
+  vim.cmd('startinsert')
+end, { desc = 'Open Node.js REPL' })
 
 -- LSP
 map({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action, { desc = 'See available code actions' })

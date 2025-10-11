@@ -5,6 +5,5 @@ local gruvbox = require('gruvbox')
 gruvbox.setup({
   italic = {
     strings = false
-  },
-  -- transparent_mode = true,
+  }
 })

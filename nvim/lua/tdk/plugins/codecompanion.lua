@@ -1,7 +1,9 @@
-vim.pack.add({ 'https://github.com/olimorris/codecompanion.nvim' })
-vim.pack.add({ 'https://github.com/nvim-lua/plenary.nvim' })
-vim.pack.add({ 'https://github.com/nvim-treesitter/nvim-treesitter' })
-vim.pack.add({ 'https://github.com/j-hui/fidget.nvim' })
+vim.pack.add({
+  'https://github.com/nvim-lua/plenary.nvim',
+  'https://github.com/nvim-treesitter/nvim-treesitter',
+  'https://github.com/j-hui/fidget.nvim',
+  'https://github.com/olimorris/codecompanion.nvim',
+})
 
 local codecompanion = require('codecompanion')
 

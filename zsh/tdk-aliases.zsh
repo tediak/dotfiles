@@ -13,8 +13,7 @@ alias zhome="nvim ~/.config/zsh/tdk-home.zsh"
 alias zso="source ~/.zshrc"
 
 # Neovim Editor
-# alias vim="nvim "
-alias nvimb="NVIM_APPNAME=nvim-back nvim "
+alias nvim-astro="NVIM_APPNAME=nvim-astro nvim "
 alias v="nvim"
 
 # Sublime *
@@ -39,3 +38,5 @@ alias most="most -w"
 # my personal utils
 alias cheatsheets="nvim ~/.navi/cheats/tdk"
 alias finance="nvim ~/my/finance"
+
+alias neovide="/Applications/Neovide.app/Contents/MacOS/neovide"

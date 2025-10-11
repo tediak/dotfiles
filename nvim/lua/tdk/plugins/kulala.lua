@@ -5,7 +5,7 @@ local kulala = require('kulala')
 kulala.setup({
   default_env = 'local',
   global_keymaps = true,
-  request_timeout = 10000,
+  request_timeout = 60 * 1000,
   ui = {
     display_mode = 'split',
     split_direction = 'vertical',

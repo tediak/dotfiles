@@ -9,7 +9,7 @@ opt.spelloptions = 'camel'
 -- Enable exrc
 opt.exrc = true
 
--- Background always in dark mode
+-- Dark mode
 opt.background = 'dark'
 
 -- Folding settings
@@ -17,12 +17,12 @@ opt.foldmethod = 'expr'
 opt.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
 opt.foldlevelstart = 99
 
--- Line Numbers (relative)
+-- Line Numbers
 opt.number = true
 opt.relativenumber = true
 
 -- Tabs
-opt.tabstop = 2 -- 2 spaces for tabs (prettier default)
+opt.tabstop = 4 -- 4 spaces for tabs
 opt.shiftwidth = 2 -- 2 spaces for indent width
 opt.expandtab = true -- expand tab to spaces
 opt.autoindent = true -- copy indent from the current line when starting a new line
@@ -59,14 +59,14 @@ end
 vim.o.tabline = '%!v:lua.TabLine()'
 
 -- Wrapping
-opt.wrap = true -- line wrap
+opt.wrap = true
 
 -- Searching
 opt.ignorecase = true -- if searching with lowercase keyword, it will be case-insensitive
 opt.smartcase = true -- if keyword has at least one uppercase char, search become case-sensitive
 
 -- Highlight cursor line
-opt.cursorline = false -- highlighted line on cursor position
+opt.cursorline = false
 
 -- Split windows defaults
 opt.splitright = true
@@ -84,7 +84,7 @@ opt.listchars:append({
 })
 
 -- Characters after EOF
--- opt.fillchars:append({ eob = " " })
+opt.fillchars:append({ eob = ' ' })
 
 -- Conceal Level
 opt.conceallevel = 3
@@ -94,7 +94,7 @@ opt.backup = false
 opt.writebackup = false
 opt.swapfile = false
 opt.undofile = true
-opt.undodir = vim.fn.expand('~/.vim/undodir') -- same for vim
+opt.undodir = vim.fn.stdpath('data') .. '/undodir'
 opt.autoread = true
 opt.updatetime = 300
 opt.timeoutlen = 500
@@ -105,3 +105,5 @@ opt.autowrite = false
 -- Behavior
 opt.backspace = 'indent,eol,start'
 opt.autochdir = false
+
+vim.cmd.packadd('nvim.undotree')

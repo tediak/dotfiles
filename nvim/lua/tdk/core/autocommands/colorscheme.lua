@@ -10,7 +10,8 @@ local overrides = {
       hl('PmenuThumb', { bg = '#000000' })
       hl('PmenuExtra', { bg = '#000000' })
       hl('PmenuKind', { bg = '#000000' })
-      hl('StatusLineNC', { bg = '#000000', fg = 'NvimLightGrey3' })
+      hl('StatusLineNC', { bg = '#121212', fg = 'NvimLightGrey3' })
+
       hl('diffLine', { fg = 'NvimDarkCyan' })
       hl('diffFile', { fg = 'NvimDarkCyan' })
       hl('diffAdded', { fg = 'NvimLightGreen', bg = 'NvimDarkGreen' })
@@ -19,15 +20,21 @@ local overrides = {
       hl('diffSubname', { fg = 'NvimDarkCyan' })
       hl('diffIndexLine', { fg = 'NvimDarkCyan' })
       hl('diffIdentical', { fg = 'NvimDarkCyan' })
+
       hl('fugitiveUntrackedHeading', { fg = 'NvimLightGrey4' })
       hl('fugitiveUntrackedModifier', { fg = 'NvimLightGrey4' })
       hl('fugitiveUnstagedHeading', { fg = 'NvimDarkCyan' })
       hl('fugitiveUnstagedModifier', { fg = 'NvimDarkCyan' })
       hl('fugitiveStagedHeading', { fg = 'NvimLightCyan' })
       hl('fugitiveStagedModifier', { fg = 'NvimLightCyan' })
+
       hl('NeoTreeGitConflict', { italic = false, fg = 'NvimLightYellow' })
       hl('NeoTreeGitUnstaged', { italic = false, fg = 'NvimLightYellow' })
       hl('NeoTreeGitUntracked', { italic = false, fg = 'NvimLightYellow' })
+
+      hl('NvimDapViewTabSelected', { fg = 'NvimLightCyan' })
+
+      hl('FzfLuaDirPart', { fg = 'NvimDarkGrey4' })
     end,
 
     poimandres = function()
@@ -52,12 +59,31 @@ local overrides = {
       hl('PmenuSbar', { bg = 'NONE' })
       hl('PmenuThumb', { bg = 'NONE' })
     end,
+
+    modus = function()
+      hl('LineNr', { link = 'SpecialKey' })
+      hl('LineNrAbove', { link = 'LineNr' })
+      hl('LineNrBelow', { link = 'LineNr' })
+    end,
+
+    standard = function()
+      hl('Normal', { bg = 'NONE' })
+      hl('SignColumn', { link = 'Normal' })
+    end,
+
+    ashen = function() hl('WinSeparator', { fg = '#121212' }) end,
   },
 
   light = {
     default = function() hl('WinSeparator', { fg = '#9E9E9E' }) end,
 
     gruvbox = function() hl('SignColumn', { link = 'Normal' }) end,
+
+    modus = function()
+      hl('LineNr', { link = 'SpecialKey' })
+      hl('LineNrAbove', { link = 'LineNr' })
+      hl('LineNrBelow', { link = 'LineNr' })
+    end,
   },
 }
 

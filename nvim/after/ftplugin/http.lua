@@ -1,4 +1,5 @@
-local function map(mode, key, fn, opts) vim.api.nvim_buf_set_keymap(0, mode, key, fn, opts) end
+local function map(mode, key, fn, opts) vim.keymap.set(mode, key, fn, { buffer = true, unpack(opts or {}) }) end
+
 local kulala = require('kulala')
 
 map('n', '[r', kulala.jump_prev, { desc = 'Jump to the previous request' })

@@ -1,21 +1,24 @@
 -- Core Neovim Settings
-require('tdk.core.lsp')
 require('tdk.core.options')
 require('tdk.core.remap')
+require('tdk.core.lsp')
+require('tdk.core.neovide')
 
 -- Autocommands
 require('tdk.core.autocommands.pack')
 require('tdk.core.autocommands.colorscheme')
+require('tdk.core.autocommands.abbrevs')
 
 -- Colorschemes
 require('tdk.colorschemes.gruvbox')
 require('tdk.colorschemes.poimandres')
-require('tdk.colorschemes.github')
+require('tdk.colorschemes.modus')
+require('tdk.colorschemes.standard')
+require('tdk.colorschemes.ashen')
 
 vim.cmd.colorscheme('default')
 
 -- UI
--- require('tdk.plugins.alpha')
 require('tdk.plugins.mini_statusline')
 require('tdk.plugins.icons')
 
@@ -35,8 +38,6 @@ require('tdk.plugins.treesitter')
 
 -- QoL
 require('tdk.plugins.autopairs')
-require('tdk.plugins.flash')
--- require('tdk.plugins.hardtime')
 require('tdk.plugins.repeat')
 require('tdk.plugins.surround')
 require('tdk.plugins.tmux_navigator')
@@ -48,7 +49,7 @@ require('tdk.plugins.harpoon')
 -- Task runner
 require('tdk.plugins.overseer')
 
--- Fuzzy finder
+-- Picker
 require('tdk.plugins.fzf')
 
 -- Artificial Intelligence (AI)
@@ -64,7 +65,3 @@ require('tdk.plugins.kulala')
 -- Git
 require('tdk.plugins.fugitive')
 require('tdk.plugins.mini_diff')
-
--- Org Mode
--- require('tdk.plugins.orgmode')
--- require('tdk.plugins.org_roam')
