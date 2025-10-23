@@ -7,13 +7,17 @@ return {
       runtime = {
         version = 'LuaJIT',
       },
-      -- diagnostics = {
-      --   globals = { 'vim' },
-      -- },
+      hint = {
+        enable = true,
+        setType = true,
+        paramType = true,
+        paramName = 'All', -- "All" | "Literal" | "Disable"
+        arrayIndex = 'Auto', -- "Auto" | "Enable" | "Disable"
+        await = true, -- optional, if you use async/await annotations
+      },
       workspace = {
-        -- Make the server aware of Neovim runtime files
         library = vim.api.nvim_get_runtime_file('', true),
-        checkThirdParty = false, -- Optional: Disable third-party library checks
+        checkThirdParty = false,
       },
       signatureHelp = { enabled = true },
     },

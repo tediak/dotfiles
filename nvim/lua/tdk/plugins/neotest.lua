@@ -21,6 +21,7 @@ neotest.setup({
         local cwd = vim.fn.getcwd()
 
         if vim.endswith(cwd, 'custom/project') then return 'npm run custom-test-command --' end
+        if vim.endswith(cwd, 'workforce/backend') then return 'npm run test:e2e --' end
 
         return 'npm test --'
       end,

@@ -17,17 +17,20 @@ opt.foldmethod = 'expr'
 opt.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
 opt.foldlevelstart = 99
 
+-- Formatting settings
+opt.formatexpr = "v:lua.require('conform').formatexpr()"
+
 -- Line Numbers
 opt.number = true
 opt.relativenumber = true
 
--- Tabs
+-- Indentation
 opt.tabstop = 4 -- 4 spaces for tabs
 opt.shiftwidth = 2 -- 2 spaces for indent width
 opt.expandtab = true -- expand tab to spaces
 opt.autoindent = true -- copy indent from the current line when starting a new line
 
--- Neovim tabs (show only file name in tabline)
+-- Neovim tabs
 opt.showtabline = 1
 function TabLine()
   local s = ''
@@ -96,7 +99,7 @@ opt.swapfile = false
 opt.undofile = true
 opt.undodir = vim.fn.stdpath('data') .. '/undodir'
 opt.autoread = true
-opt.updatetime = 300
+opt.updatetime = 2000
 opt.timeoutlen = 500
 opt.ttimeoutlen = 0
 opt.autoread = true
@@ -105,5 +108,3 @@ opt.autowrite = false
 -- Behavior
 opt.backspace = 'indent,eol,start'
 opt.autochdir = false
-
-vim.cmd.packadd('nvim.undotree')

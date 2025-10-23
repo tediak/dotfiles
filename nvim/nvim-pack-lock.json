@@ -23,23 +23,27 @@
       "src": "https://github.com/kirasok/cmp-hledger"
     },
     "codecompanion.nvim": {
-      "rev": "946e186",
+      "rev": "7b336cc",
       "src": "https://github.com/olimorris/codecompanion.nvim"
     },
     "conform.nvim": {
-      "rev": "fbcb4fa",
+      "rev": "9fd3d5e",
       "src": "https://github.com/stevearc/conform.nvim"
     },
     "copilot.lua": {
-      "rev": "92e08cd",
+      "rev": "3123983",
       "src": "https://github.com/zbirenbaum/copilot.lua"
+    },
+    "dooing": {
+      "rev": "d4cc4da",
+      "src": "https://github.com/atiladefreitas/dooing"
     },
     "fidget.nvim": {
       "rev": "3f54759",
       "src": "https://github.com/j-hui/fidget.nvim"
     },
     "fzf-lua": {
-      "rev": "db3ccff",
+      "rev": "9244bd4",
       "src": "https://github.com/ibhagwan/fzf-lua"
     },
     "gruvbox.nvim": {
@@ -52,7 +56,7 @@
       "version": "'harpoon2'"
     },
     "kulala.nvim": {
-      "rev": "0d50e9c",
+      "rev": "183bf44",
       "src": "https://github.com/mistweaverco/kulala.nvim"
     },
     "mini.diff": {
@@ -68,12 +72,12 @@
       "src": "https://github.com/miikanissi/modus-themes.nvim"
     },
     "neo-tree.nvim": {
-      "rev": "0c29e37",
+      "rev": "8cdd6b1",
       "src": "https://github.com/nvim-neo-tree/neo-tree.nvim",
       "version": "3.0.0 - 4.0.0"
     },
     "neotest": {
-      "rev": "2cf3544",
+      "rev": "7166dc3",
       "src": "https://github.com/nvim-neotest/neotest"
     },
     "neotest-jest": {
@@ -85,11 +89,11 @@
       "src": "https://github.com/MunifTanjim/nui.nvim"
     },
     "nvim-autopairs": {
-      "rev": "23320e7",
+      "rev": "7a2c97c",
       "src": "https://github.com/windwp/nvim-autopairs"
     },
     "nvim-dap": {
-      "rev": "881f7dc",
+      "rev": "6782b09",
       "src": "https://github.com/mfussenegger/nvim-dap"
     },
     "nvim-dap-go": {
@@ -97,7 +101,7 @@
       "src": "https://github.com/leoluz/nvim-dap-go"
     },
     "nvim-dap-view": {
-      "rev": "668e9e6",
+      "rev": "76f219c",
       "src": "https://github.com/igorlfs/nvim-dap-view"
     },
     "nvim-nio": {
@@ -113,11 +117,11 @@
       "src": "https://github.com/nvim-tree/nvim-web-devicons"
     },
     "oil.nvim": {
-      "rev": "919e155",
+      "rev": "7e1cd77",
       "src": "https://github.com/stevearc/oil.nvim"
     },
     "overseer.nvim": {
-      "rev": "fe7b2f9",
+      "rev": "c77c78b",
       "src": "https://github.com/stevearc/overseer.nvim"
     },
     "plenary.nvim": {
@@ -132,13 +136,25 @@
       "rev": "0b1c270",
       "src": "https://github.com/fnune/standard"
     },
+    "tdk-colors.nvim": {
+      "rev": "ca6d0c7",
+      "src": "git@github.com:tediak/tdk-colors.nvim.git"
+    },
     "todo-comments.nvim": {
       "rev": "19d461d",
       "src": "https://github.com/folke/todo-comments.nvim"
     },
+    "todotxt.nvim": {
+      "rev": "62265fd",
+      "src": "https://github.com/phrmendes/todotxt.nvim"
+    },
     "treesj": {
       "rev": "4770492",
       "src": "https://github.com/Wansmer/treesj"
+    },
+    "ttodo_vim": {
+      "rev": "6fee1de",
+      "src": "https://github.com/tomtom/ttodo_vim"
     },
     "vim-dadbod": {
       "rev": "e95afed",
@@ -153,7 +169,7 @@
       "src": "https://github.com/pbogut/vim-dadbod-ssh"
     },
     "vim-dadbod-ui": {
-      "rev": "e8b53c0",
+      "rev": "5a83ee1",
       "src": "https://github.com/kristijanhusak/vim-dadbod-ui"
     },
     "vim-fubitive": {

@@ -41,9 +41,11 @@ oil.setup({
   view_options = {
     show_hidden = true,
   },
-  float = {
-    max_height = 0.6,
-    max_width = 0.4,
+  confirmation = {
+    padding = 4,
+    height = 0.1,
+    width = 0.15,
+    border = 'rounded',
   },
 })
 

@@ -12,7 +12,7 @@ codecompanion.setup({
     chat = {
       adapter = {
         name = 'copilot',
-        model = 'gpt-4',
+        model = 'gpt-4.1',
       },
     },
     inline = {
@@ -43,6 +43,7 @@ codecompanion.setup({
 
 local progress = require('fidget.progress')
 local handles = {}
+
 local group = vim.api.nvim_create_augroup('CodeCompanionFidget', { clear = true })
 
 vim.api.nvim_create_autocmd('User', {

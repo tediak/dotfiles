@@ -90,7 +90,7 @@ statusline.setup({
   content = {
     active = function()
       local mode, mode_hl = get_mode_short()
-      local filename = '%f%m%r'
+      local filename = '%t%m%r'
       local diff = vim.b.minidiff_summary_string
       local branch_name = ''
       if vim.fn.exists('*FugitiveStatusline') == 1 then
@@ -121,6 +121,10 @@ statusline.setup({
         { hl = 'MiniStatuslineFileinfo', strings = { location } },
       })
     end,
-    inactive = nil,
+    inactive = function()
+      return statusline.combine_groups({
+        { hl = 'MiniStatuslineFilename', strings = { '%t' } },
+      })
+    end,
   },
 })

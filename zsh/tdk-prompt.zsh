@@ -58,5 +58,5 @@ go_segment() {
 }
 
 setopt PROMPT_SUBST
-PROMPT=$'%F{4}[%f%F{blue}%4~%f%F{4}]%f$(git_segment) %B%F{%(?.blue.red)}λ%f%b '
+PROMPT=$'%F{4}[%f%F{10}%4~%f%F{4}]%f$(git_segment) %B%F{%(?.10.blue)}λ%f%b '
 RPROMPT=$'$(aws_segment)$(node_segment)$(go_segment)'

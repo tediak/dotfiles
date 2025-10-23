@@ -6,13 +6,13 @@ local fzf = require('fzf-lua')
 
 fzf.setup({
   defaults = {
-    file_icons = true,
+    file_icons = false,
     git_icons = false,
     winopts = {
-      height = 0.4, -- 40% of the screen height
-      width = 1.0, -- full width
-      row = 1.0, -- bottom of the screen
-      border = 'none', -- no border for true ivy look
+      height = 0.3,
+      width = 1.0,
+      row = 1.0,
+      border = 'none',
       preview = {
         border = false
       }
@@ -92,11 +92,11 @@ vim.keymap.set(
   { desc = 'Show LSP references (vertical split)' }
 )
 
-vim.keymap.set('n', 'gd', fzf.lsp_definitions, { desc = 'Show LSP definitions' })
+vim.keymap.set('n', 'grd', fzf.lsp_definitions, { desc = 'Show LSP definitions' })
 
 vim.keymap.set(
   'n',
-  'gD',
+  'grD',
   function()
     fzf.lsp_definitions({
       jump1_action = fzf.actions.file_vsplit,

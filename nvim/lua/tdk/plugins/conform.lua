@@ -6,9 +6,9 @@ conform.setup({
   formatters_by_ft = {
     lua = { 'stylua' },
     sql = { 'sqlfluff' },
-    javascript = { 'eslint_d', 'prettierd', stop_after_first = true },
-    typescript = { 'eslint_d', 'prettierd', stop_after_first = true },
-    astro = { 'eslint_d', 'prettierd', stop_after_first = true },
+    javascript = { 'eslint', 'prettier' },
+    typescript = { 'eslint', 'prettier' },
+    astro = { 'eslint', 'prettier' },
     http = { 'kulala' },
     rest = { 'kulala' },
     json = { 'jq' },

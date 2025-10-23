@@ -11,6 +11,7 @@ local overrides = {
       hl('PmenuExtra', { bg = '#000000' })
       hl('PmenuKind', { bg = '#000000' })
       hl('StatusLineNC', { bg = '#121212', fg = 'NvimLightGrey3' })
+      hl('TabLineSel', { fg = 'NvimLightCyan' })
 
       hl('diffLine', { fg = 'NvimDarkCyan' })
       hl('diffFile', { fg = 'NvimDarkCyan' })
