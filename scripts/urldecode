@@ -1,0 +1,8 @@
+#!/usr/bin/env node
+let data = '';
+process.stdin.setEncoding('utf8');
+process.stdin.on('data', chunk => data += chunk);
+process.stdin.on('end', () => {
+  console.log(decodeURIComponent(data.trim()));
+});
+process.stdin.resume();

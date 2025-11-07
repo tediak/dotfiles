@@ -2,6 +2,16 @@ local function abbrev(lhs, rhs) vim.keymap.set({ 'ia' }, lhs, rhs, { buffer = tr
 
 local group = vim.api.nvim_create_augroup('TDKAbbrevs', { clear = true })
 
+-- All
+vim.api.nvim_create_autocmd('FileType', {
+  group = group,
+  pattern = { '*' },
+  callback = function()
+    abbrev('#H', 'ivan.yadzvinsky@gmail.com')
+    abbrev('#W', 'i.yadzvinskij@artk.ai')
+  end,
+})
+
 -- JS/TS/Others
 vim.api.nvim_create_autocmd('FileType', {
   group = group,

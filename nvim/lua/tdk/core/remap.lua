@@ -11,12 +11,17 @@ map('n', '<up>', '5<c-y>', { desc = 'Scroll up' })
 
 -- Unset encryption
 unmap({ 'n', 'x' }, 'g?')
+
+-- Unset g+ and g-
 unmap({ 'n' }, 'g+')
 unmap({ 'n' }, 'g-')
 
+-- Capitalize word
+map('n', 'gC', 'b~', { desc = 'Capitalize/Uncapitalize word' })
+
 -- Utilities
-map('n', '<leader>x', '<cmd>close<cr>', { desc = 'Close current tab/pane' })
-map('n', '<leader>nh', '<cmd>nohlsearch<CR>', { desc = 'Clear search highlights' })
+map('n', '<leader>x', '<cmd>close<cr>', { desc = 'Close Current tab/pane' })
+map('n', '<esc>', '<cmd>nohlsearch<cr>', { desc = 'Clear search highlights' })
 
 -- Change command line window key
 map('n', 'Q:', 'q:', { desc = 'Open command line window' })
@@ -42,7 +47,7 @@ map('n', ']t', '<cmd>tabmove +1<cr>', { desc = 'Move tab to the right' })
 map('n', '[t', '<cmd>tabmove -1<cr>', { desc = 'Move tab to the left' })
 
 -- Package Manager Update
-vim.api.nvim_create_user_command('PackUpdate', function() vim.pack.update() end, { desc = 'Update all packages' })
+vim.api.nvim_create_user_command('Pack', function() vim.pack.update() end, { desc = 'Update all packages' })
 
 -- Terminal
 map('t', '<esc>', '<c-\\><c-n>', { desc = 'Exit terminal mode' })
@@ -55,48 +60,6 @@ vim.api.nvim_create_user_command('Node', function()
   vim.cmd('startinsert')
 end, { desc = 'Open Node.js REPL' })
 
--- Show hl group under the cursor
-local function show_hl_under_cursor()
-  local row, col = unpack(vim.api.nvim_win_get_cursor(0))
-  local syn = nil
-  local ok = pcall(function()
-    local id = vim.fn.synID(row, col + 1, true)
-    syn = vim.fn.synIDattr(vim.fn.synIDtrans(id), 'name')
-  end)
-
-  local captures = {}
-  pcall(function()
-    for _, cap in ipairs(vim.treesitter.get_captures_at_cursor(0)) do
-      local name = cap.capture or cap.name or cap -- handles different return shapes
-      table.insert(captures, tostring(name))
-    end
-  end)
-
-  local ext_hls = {}
-  local marks = vim.api.nvim_buf_get_extmarks(0, -1, {row - 1, col}, {row - 1, col + 1}, {details = true})
-  for _, m in ipairs(marks) do
-    local d = m[4]
-    if d and (d.hl_group or d.hl_eol or d.virt_text) then
-      if d.hl_group then table.insert(ext_hls, d.hl_group) end
-      -- also collect hl groups from virt_text chunks
-      if d.virt_text then
-        for _, chunk in ipairs(d.virt_text) do
-          local _, hl = chunk[1], chunk[2]
-          if hl then table.insert(ext_hls, hl) end
-        end
-      end
-    end
-  end
-
-  local parts = {}
-  table.insert(parts, ('syn=%s'):format(syn or '∅'))
-  table.insert(parts, ('ts=%s'):format(next(captures) and table.concat(captures, ', ') or '∅'))
-  table.insert(parts, ('ext=%s'):format(next(ext_hls) and table.concat(ext_hls, ', ') or '∅'))
-  vim.notify(table.concat(parts, '  '))
-end
-
-vim.api.nvim_create_user_command('HLUnderCursor', show_hl_under_cursor, {})
-
 -- LSP
 map({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action, { desc = 'See available code actions' })
 map('n', '[d', function() vim.diagnostic.jump({ count = -1 }) end, { desc = 'Go to previous diagnostic' })
@@ -108,5 +71,30 @@ map('n', '<leader>ti', function()
   vim.lsp.inlay_hint.enable(not was_enabled)
   vim.notify('Inlay hints ' .. (was_enabled and 'disabled' or 'enabled'))
 end, { desc = 'Toggle inlay hints' })
-
 -- More LSP key bindings are handled by fzf-lua plugin and are located in respective config file
+
+local function random_colorscheme()
+  local colorschemes = {
+    'default',
+    'tdk-colors',
+    'gruvbox',
+    'poimandres',
+    'modus_vivendi',
+    'standard',
+    'ashen',
+    'vesper',
+    'vscode',
+  }
+  -- Get current colorscheme
+  local current = vim.g.colors_name or 'default'
+  local filtered = {}
+  for _, cs in ipairs(colorschemes) do
+    if cs ~= current then table.insert(filtered, cs) end
+  end
+  local available = #filtered > 0 and filtered or colorschemes
+  local choice = available[math.random(#available)]
+  vim.cmd.colorscheme(choice)
+  vim.notify('Colorscheme changed to ' .. choice, vim.log.levels.INFO)
+end
+
+map({ 'n', 'i' }, '<f5>', random_colorscheme, { desc = 'Switch random colorsheme' })

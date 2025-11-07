@@ -18,7 +18,7 @@ git_segment() {
     case $y in M) ((unstaged_added++));; D) ((unstaged_deleted++));; esac
   done < <(git status --porcelain 2>/dev/null)
 
-  local seg="%F{4}-[%f%F{magenta}${branch}%f"
+  local seg="%F{4}-[%f%F{8}${branch}%f"
   ((unstaged_added))   && seg+=" %F{red}+${unstaged_added}%f"
   ((unstaged_deleted)) && seg+=" %F{red}-${unstaged_deleted}%f"
   ((staged_added))     && seg+=" %F{green}+${staged_added}%f"
@@ -30,7 +30,7 @@ git_segment() {
 aws_segment() {
   local seg=""
   if [[ -n $AWS_PROFILE ]]; then
-    seg+=" %F{8}aws:$AWS_PROFILE"
+    seg+=" %F{11}aws:$AWS_PROFILE"
     [[ -n $AWS_REGION ]] && seg+="($AWS_REGION)"
     seg+="%f"
   fi
@@ -44,7 +44,7 @@ node_segment() {
     local node_version
     node_version=$(node -v 2>/dev/null)
     if [[ -n $PROMPT_NODE_VERSION ]]; then
-      seg+=" %F{8}node:$node_version%f"
+      seg+=" %F{11}node:$node_version%f"
     fi
   fi
   print -r -- "$seg"
@@ -53,10 +53,10 @@ node_segment() {
 PROMPT_GO_VERSION=$(go version 2>/dev/null | awk '{print $3}' | sed 's/^go/v/')
 go_segment() {
   if [[ -n $PROMPT_GO_VERSION ]]; then
-    print -r -- " %F{8}go:${PROMPT_GO_VERSION}%f"
+    print -r -- " %F{11}go:${PROMPT_GO_VERSION}%f"
   fi
 }
 
 setopt PROMPT_SUBST
-PROMPT=$'%F{4}[%f%F{10}%4~%f%F{4}]%f$(git_segment) %B%F{%(?.10.blue)}λ%f%b '
+PROMPT=$'%F{4}[%f%F{blue}%4~%f%F{4}]%f$(git_segment) %B%F{%(?.yellow.red)}λ%f%b '
 RPROMPT=$'$(aws_segment)$(node_segment)$(go_segment)'

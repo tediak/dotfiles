@@ -41,15 +41,13 @@ conform.setup({
   },
 })
 
-vim.keymap.set(
-  'n',
-  '<leader>fm',
-  function()
-    conform.format({
-      lsp_fallback = true,
-      async = true,
-      timeout_ms = 3000,
-    })
-  end,
-  { desc = 'Format a file with conform' }
-)
+local function fmt()
+  conform.format({
+    lsp_fallback = true,
+    async = true,
+    timeout_ms = 3000,
+  })
+end
+
+vim.keymap.set('n', '<leader>fm', fmt, { desc = 'Format a file with conform' })
+vim.keymap.set('n', '<f4>', fmt, { desc = 'Format a file with conform' })

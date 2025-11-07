@@ -73,7 +73,28 @@ blink.setup({
     },
   },
   cmdline = {
-    enabled = false,
+    enabled = true,
+    keymap = {
+      preset = 'inherit',
+      ['<CR>'] = {
+        function(cmp)
+          if cmp.snippet_active() then
+            return cmp.accept()
+          else
+            return cmp.select_and_accept()
+          end
+        end,
+        'snippet_forward',
+        'fallback',
+      },
+      ['<Tab>'] = { 'show', 'select_next' },
+      ['<S-Tab>'] = { 'select_prev' },
+    },
+    completion = {
+      menu = {
+        auto_show = false,
+      },
+    },
   },
   sources = {
     default = { 'dadbod', 'snippets', 'lsp', 'path', 'buffer' },

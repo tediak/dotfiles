@@ -15,7 +15,8 @@ oil.setup({
   win_options = {
     number = false,
     relativenumber = false,
-    signcolumn = 'no', -- yes:2 for oil-git-status plugin
+    signcolumn = 'no', -- yes:2 for oil-git-status plugin, no by default
+    cursorline = true,
   },
   keymaps = {
     ['gd'] = {
@@ -23,7 +24,7 @@ oil.setup({
       callback = function()
         detail = not detail
         if detail then
-          require('oil').set_columns({ 'icon', 'permissions', 'size', 'mtime' })
+          require('oil').set_columns({ 'icon', '', 'permissions', 'size', 'mtime' })
         else
           require('oil').set_columns({ 'icon' })
         end
@@ -46,6 +47,9 @@ oil.setup({
     height = 0.1,
     width = 0.15,
     border = 'rounded',
+    win_options = {
+      winblend = 0
+    }
   },
 })
 

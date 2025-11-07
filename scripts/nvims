@@ -1,0 +1,32 @@
+#!/usr/bin/env zsh
+
+local pids=("${(@f)$(ps -eo pid,comm | awk '$2=="nvim"{print $1}')}")
+
+if [[ -z $pids ]]; then
+  echo "No Neovim instances running."
+  exit 0
+fi
+
+echo "Neovim instance count: ${#pids}"
+echo ""
+
+local dirs=()
+for pid in $pids; do
+  # Get the full command line for the PID
+  cmd=$(ps -p $pid -o command=)
+  # Get the working directory for each PID
+  dir=$(lsof -a -p $pid -d cwd -Fn 2>/dev/null | grep '^n' | cut -c2-)
+  # Get RSS in kilobytes, convert to human-readable
+  rss_kb=$(ps -o rss= -p $pid | tr -d ' ')
+  if [[ -n $cmd && -n $dir && -n $rss_kb ]]; then
+    # Convert to human-readable (e.g., 34000K -> 34M)
+    if command -v numfmt >/dev/null 2>&1; then
+      rss_human=$(numfmt --to=iec --suffix=B --format="%.1f" $((rss_kb*1024)))
+    else
+      # Fallback: show in MB
+      rss_human="$((rss_kb/1024))M"
+    fi
+    echo "${cmd} ${dir} (${rss_human})"
+    dirs+=$dir
+  fi
+done

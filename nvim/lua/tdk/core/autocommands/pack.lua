@@ -15,7 +15,14 @@ local function rebuild_vscode_debug(data)
   vim.notify('Moving dist directory to out...')
   vim.system({ 'mv', 'dist', 'out' }, { cwd = plugin_dir }):wait()
 
-  vim.notify('Built vscode-js-debug after ' .. data.kind, vim.log.levels.INFO)
+  vim.notify('Built vscode-js-debug after ' .. data.kind)
+end
+
+local function rebuild_codesnap(data)
+  local plugin_dir = data.path
+
+  vim.system({ 'make', 'build_generator' }, { cwd = plugin_dir }):wait()
+  vim.notify('Codesnap built after ' .. data.kind)
 end
 
 vim.api.nvim_create_autocmd('PackChanged', {
@@ -23,6 +30,10 @@ vim.api.nvim_create_autocmd('PackChanged', {
   callback = function(event)
     if event.data.kind == 'update' and event.data.spec.name == 'vscode-js-debug' then
       rebuild_vscode_debug(event.data)
+    end
+
+    if event.data.spec.name == 'codesnap.nvim' then
+      rebuild_codesnap(event.data)
     end
   end,
 })

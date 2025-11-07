@@ -42,6 +42,8 @@ todo_comments.setup({
   },
 })
 
+vim.keymap.set('n', '<leader>ft', '<cmd>TodoFzfLua<cr>', { desc = 'Search todo comments' })
+
 -- TODO: todo text
 
 -- BUG: bug text

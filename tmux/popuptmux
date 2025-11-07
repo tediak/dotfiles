@@ -1,0 +1,7 @@
+SESSION_NAME="_POPUP"
+if [ "$(tmux display-message -p -F "#{session_name}")" = $SESSION_NAME ];then
+    tmux detach-client
+else
+    tmux set-option -t $SESSION_NAME status off 2>/dev/null
+    tmux popup -w 40% -h 100% -x R -E "tmux attach -t $SESSION_NAME || tmux new -s $SESSION_NAME"
+fi

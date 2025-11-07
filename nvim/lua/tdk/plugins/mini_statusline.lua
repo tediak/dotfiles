@@ -110,6 +110,7 @@ statusline.setup({
 
       local overseer_status_line = overseer_status({ colored = false })
       local location = '%4(%l:%v%)'
+      local task_status = '%{v:lua.TDKTaskStatus()}'
 
       return statusline.combine_groups({
         { hl = mode_hl, strings = { mode } },
@@ -118,7 +119,7 @@ statusline.setup({
         { hl = 'MiniStatuslineFilename', strings = { branch_name, diff, diagnostics } },
         '%=', -- End left alignment
         { hl = 'MiniStatuslineFileinfo', strings = { overseer_status_line } }, -- overseer status line
-        { hl = 'MiniStatuslineFileinfo', strings = { location } },
+        { hl = 'MiniStatuslineFileinfo', strings = { task_status, location } },
       })
     end,
     inactive = function()

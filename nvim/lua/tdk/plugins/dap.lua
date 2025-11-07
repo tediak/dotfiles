@@ -9,6 +9,11 @@ vim.pack.add({
 local dap = require('dap')
 local dap_go = require('dap-go')
 local ui = require('dap-view')
+local wk = require('which-key')
+
+wk.add({
+  { '<leader>d', group = 'DAP' },
+})
 
 ui.setup()
 

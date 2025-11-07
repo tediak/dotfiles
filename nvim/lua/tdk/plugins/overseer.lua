@@ -42,4 +42,4 @@ vim.api.nvim_create_user_command('OverseerRestartLast', function()
   end
 end, {})
 
-vim.keymap.set('n', '<leader>r', '<cmd>OverserRestartLast<cr>', { desc = 'Restart last task' })
+vim.keymap.set('n', 'gR', '<cmd>OverseerRestartLast<cr>', { desc = 'Restart last task' })

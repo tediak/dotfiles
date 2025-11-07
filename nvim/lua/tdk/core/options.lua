@@ -9,6 +9,10 @@ opt.spelloptions = 'camel'
 -- Enable exrc
 opt.exrc = true
 
+-- Cmdline completion
+opt.wildmenu = false
+opt.wildmode = ''
+
 -- Dark mode
 opt.background = 'dark'
 
@@ -18,7 +22,7 @@ opt.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
 opt.foldlevelstart = 99
 
 -- Formatting settings
-opt.formatexpr = "v:lua.require('conform').formatexpr()"
+opt.formatexpr = 'v:lua.require(\'conform\').formatexpr()'
 
 -- Line Numbers
 opt.number = true
@@ -84,6 +88,7 @@ opt.listchars:append({
   trail = '·',
   lead = ' ',
   tab = '  ',
+  nbsp = '␣',
 })
 
 -- Characters after EOF
@@ -108,3 +113,12 @@ opt.autowrite = false
 -- Behavior
 opt.backspace = 'indent,eol,start'
 opt.autochdir = false
+
+-- Hide mode
+opt.showmode = false
+
+-- Preview substitutions
+opt.inccommand = 'split'
+
+-- Ask to save a file, if operation may discard unsaved changes
+opt.confirm = true

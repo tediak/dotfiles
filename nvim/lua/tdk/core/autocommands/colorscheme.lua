@@ -61,15 +61,22 @@ local overrides = {
       hl('PmenuThumb', { bg = 'NONE' })
     end,
 
-    modus = function()
+    modus_vivendi = function()
       hl('LineNr', { link = 'SpecialKey' })
       hl('LineNrAbove', { link = 'LineNr' })
       hl('LineNrBelow', { link = 'LineNr' })
+      hl('SignColumn', { link = 'LineNr' })
     end,
 
     standard = function()
       hl('Normal', { bg = 'NONE' })
+      hl('NormalFloat', { bg = 'NONE' })
       hl('SignColumn', { link = 'Normal' })
+      hl('Keyword', { fg = '#d53880' })
+      hl('Comment', { fg = '#505a5f' })
+      hl('Exception', { fg = '#d4351c' })
+      hl('Delimiter', { fg = '#505a5f' })
+      hl('@keyword.return', { fg = '#912b88' })
     end,
 
     ashen = function() hl('WinSeparator', { fg = '#121212' }) end,
@@ -80,10 +87,17 @@ local overrides = {
 
     gruvbox = function() hl('SignColumn', { link = 'Normal' }) end,
 
-    modus = function()
+    modus_operandi = function()
       hl('LineNr', { link = 'SpecialKey' })
       hl('LineNrAbove', { link = 'LineNr' })
       hl('LineNrBelow', { link = 'LineNr' })
+    end,
+
+    standard = function()
+      hl('SignColumn', { link = 'Normal' })
+      hl('Keyword', { fg = '#d53880' })
+      hl('Comment', { fg = '#505a5f' })
+      hl('Exception', { fg = '#d4351c' })
     end,
   },
 }

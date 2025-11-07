@@ -6,6 +6,11 @@ vim.pack.add({
 })
 
 local codecompanion = require('codecompanion')
+local wk = require('which-key')
+
+wk.add({
+  { '<leader>s', group = 'CodeCompanion' },
+})
 
 codecompanion.setup({
   strategies = {
